@@ -1,0 +1,716 @@
+@font-face {
+    font-family: "Muller";
+    src: url("../fonts/MullerLight.woff2") format("woff2"), url("../fonts/MullerLight.woff") format("woff");
+    font-display: swap;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Muller";
+    src: url("../fonts/MullerRegular.woff2") format("woff2"), url("../fonts/MullerRegular.woff") format("woff");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Muller";
+    src: url("../fonts/MullerMedium.woff2") format("woff2"), url("../fonts/MullerMedium.woff") format("woff");
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Muller";
+    src: url("../fonts/MullerBold.woff2") format("woff2"), url("../fonts/MullerBold.woff") format("woff");
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*Global css*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    transition: all .1s linear;
+}
+
+a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #cc9933;
+}
+
+button {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: solid 1px #cc9933;
+    font-weight: 700;
+    color: #cc9933;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+textarea,
+input {
+    padding: 0 20px;
+    border-radius: 12px;
+    border: none;
+    font-family: "Muller", sans-serif;
+}
+
+textarea:active,
+textarea:hover,
+textarea:focus,
+input:active,
+input:hover,
+input:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+    font-family: "Muller", sans-serif;
+    color: #999;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+html {
+    font-family: "Muller", sans-serif;
+}
+
+.container {
+    padding: 0 15px;
+    margin: 0 auto 70px auto;
+    max-width: 1200px;
+}
+
+.section-title {
+    padding: 0 0 0 45px;
+    margin: 0 0 25px 0;
+    font-size: 40px;
+}
+
+.arrow-right {
+    padding: 0 15px 0 0;
+    background-image: url("../img/icon/arrow-right.png");
+    background-repeat: no-repeat;
+    background-size: 9px;
+    background-position: right;
+}
+
+.arrow-right-white {
+    background-image: url("../img/icon/arrow-right-white.png");
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+}
+
+.white-text {
+    color: #fff;
+}
+
+
+/*Header*/
+
+.header {
+    padding: 30px 0 0 0;
+}
+
+.high-container {
+    margin: 0 0 30px 0;
+    height: 55px;
+}
+
+.header-logo {
+    margin: 0 25px 0 0;
+    height: 100%;
+}
+
+.header-phone {
+    font-size: 22px;
+    font-weight: 700;
+    color: #666;
+}
+
+.header-phone:hover {
+    color: #cc9933;
+}
+
+.header-signIn {
+    margin: 0 0 0 auto;
+    font-weight: 500;
+}
+
+.header-nav {
+    flex-wrap: nowrap;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.header-nav-list {
+    justify-content: left;
+    margin: 10px 0;
+    max-width: 810px;
+}
+
+.header-nav-list-item {
+    margin: 10px 45px 10px 0;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.header-nav-list-item-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.header-nav-list-item-link:hover {
+    color: #cc9933;
+}
+
+.header-nav-search {
+    position: relative;
+    margin: 0 0 0 auto;
+    width: 350px;
+    height: 50px;
+    min-width: 250px;
+}
+
+.header-nav-search-input {
+    padding: 0 40px 0 20px;
+    margin: 0 0 10px 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1f1f1;
+}
+
+.header-nav-search-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/icon/search.png");
+    background-size: 70%;
+}
+
+
+/*Section booking*/
+
+.section-booking {
+    width: 520px;
+    margin: 0 55px 0 0;
+}
+
+.section-booking-form {
+    flex-direction: column;
+}
+
+.section-booking-form-item {
+    margin: 0 0 25px 0;
+    width: 520px;
+    height: 70px;
+}
+
+.section-booking-button-offer {
+    justify-content: left;
+    margin: 0 auto 0 0;
+}
+
+.section-booking-button {
+    padding: 25px 30px;
+    margin: 0 30px 0 0;
+}
+
+.section-booking-button:hover {
+    padding: 18.75px 22.5px;
+    margin: 6.25px 37.5px 6.25px 7.5px;
+    color: #fff;
+    background-color: #cc9933;
+}
+
+.section-booking-offer {
+    color: #a5a5a5;
+}
+
+
+/*Section special*/
+
+.section-special {
+    width: 595px;
+}
+
+.section-special-example {
+    position: relative;
+    border-radius: 12px;
+    height: 540px;
+    width: 595px;
+    background-image: url("../img/example/example-image.jpg");
+}
+
+.section-special-example-info {
+    position: absolute;
+    bottom: 35px;
+    left: 40px;
+    width: 322px;
+}
+
+.section-special-example-info-heading {
+    margin: 0 0 30px 0;
+    font-size: 66px;
+    font-weight: 700;
+    line-height: 58px;
+}
+
+.section-special-example-info-price {
+    margin: 0 40px 0 0;
+    font-size: 35px;
+    opacity: .5;
+}
+
+.section-special-example-info-more {
+    opacity: 1;
+}
+
+
+/*Section aboutUs*/
+
+.section-aboutUs-info {
+    padding: 0 240px 0 45px;
+    line-height: 32px;
+    color: #666;
+}
+
+
+/*Section services*/
+
+.section-services-list-item {
+    flex: 1 1 50%;
+    max-width: 573px;
+}
+
+.section-services-list-item:nth-child(odd) {
+    margin-right: 24px;
+}
+
+.section-services-list-item:nth-last-child(1n+3) {
+    margin-bottom: 24px;
+}
+
+.section-services-list-item-image {
+    width: 573px;
+    height: 165px;
+}
+
+.section-services-list-item-info {
+    padding: 35px 125px 40px 45px;
+}
+
+.section-services-list-item-info-heading {
+    margin: 0 0 10px 0;
+    width: fit-content;
+}
+
+.section-services-list-item-info-content {
+    line-height: 32px;
+}
+
+
+/*Section advantages*/
+
+.section-advantages-list-item {
+    flex: 1 1 25%;
+    padding: 40px;
+    margin: 0 24px 0 0;
+    max-width: 274px;
+}
+
+.section-advantages-list-item:nth-child(4n) {
+    margin-right: 0;
+}
+
+.section-advantages-list-item:nth-last-child(1n+5) {
+    margin-bottom: 24px;
+}
+
+.section-advantages-list-item-image {
+    margin-bottom: 20px;
+    width: 64px;
+    height: 64px;
+    background-size: 100%;
+}
+
+.advantage-image-1 {
+    background-image: url("../img/icon/advantage/bathtub.png");
+}
+
+.advantage-image-2 {
+    background-image: url("../img/icon/advantage/hanger.png");
+}
+
+.advantage-image-3 {
+    background-image: url("../img/icon/advantage/heating.png");
+}
+
+.advantage-image-4 {
+    background-image: url("../img/icon/advantage/hotel-key.png");
+}
+
+.advantage-image-5 {
+    background-image: url("../img/icon/advantage/parking.png");
+}
+
+.advantage-image-6 {
+    background-image: url("../img/icon/advantage/reception.png");
+}
+
+.advantage-image-7 {
+    background-image: url("../img/icon/advantage/security-box.png");
+}
+
+.advantage-image-8 {
+    background-image: url("../img/icon/advantage/swimming-pool.png");
+}
+
+.section-advantages-list-item-info {
+    line-height: 32px;
+}
+
+
+/*Section placements*/
+
+.section-placements-list-item {
+    flex: 1 1 33.33%;
+    margin: 0 24px 0 0;
+    max-width: 374px;
+}
+
+.section-placements-list-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.section-placements-list-item:nth-last-child(1n+4) {
+    margin-bottom: 24px;
+}
+
+.section-placements-list-item-image {
+    width: 100%;
+    height: 217px;
+}
+
+.section-placements-list-item-info {
+    padding: 45px 0 45px 45px;
+}
+
+.section-placements-list-item-info-terms-rating {
+    flex-wrap: nowrap;
+    margin: 0 0 15px 0;
+}
+
+.section-placements-list-item-info-terms-from {
+    color: #a4a4a4;
+}
+
+.section-placements-list-item-info-terms-price {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.section-placements-list-item-info-rating {
+    margin: 0 45px 0 auto;
+    width: 96px;
+    height: 13px;
+}
+
+.section-placements-list-item-info-rating img {
+    width: 13px;
+    height: 100%;
+}
+
+.section-placements-list-item-info-name-location {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.section-placements-list-item-info-name {
+    margin-bottom: 15px;
+}
+
+.section-placements-list-item-info-location {
+    margin-bottom: 20px;
+    color: #999;
+}
+
+.section-placements-list-item-info-button:hover {
+    padding: 9px 15px;
+    margin: 3px 5px;
+    color: #fff;
+    background-color: #cc9933;
+}
+
+.section-placements-list-item-last-info {
+    position: relative;
+    width: 100%;
+    height: 453px;
+}
+
+.section-placements-list-item-last-info-link {
+    position: absolute;
+    left: 40px;
+    bottom: 60px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+
+/* Section contacts & writeUs */
+
+.sections-contacts-writeUs {
+    flex-wrap: nowrap;
+    margin: 0 auto 25px auto;
+}
+
+
+/* Section contacts */
+
+.section-contacts {
+    margin: 0 auto 0 0;
+    width: 472px;
+}
+
+.section-contacts-info {
+    padding: 45px;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.section-contacts-info-list {
+    margin: 0 0 45px 0;
+}
+
+.section-contacts-info-list-item {
+    display: flex;
+    padding: 0 0 30px 0;
+    margin: 0 0 30px 0;
+    border-radius: 0;
+    border-bottom: solid 1px #ccc;
+}
+
+.section-contacts-info-list-item-heading {
+    margin-right: auto;
+    font-size: 22px;
+    font-weight: 700;
+    color: #666;
+}
+
+.section-contacts-info-list-item-content {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    text-align: left;
+    font-style: normal;
+    line-height: 24px;
+}
+
+.section-contacts-info-list-item-content-phone {
+    margin: 0 0 10px 0;
+}
+
+.section-contacts-info-list-item-content-mail {
+    line-height: 24px;
+    color: #999;
+}
+
+.section-contacts-info-button {
+    padding: 25px 30px;
+}
+
+.section-contacts-info-button:hover {
+    padding: 18.75px 22.5px;
+    margin: 6.25px 7.5px 6.25px 7.5px;
+    color: #fff;
+    background-color: #cc9933;
+}
+
+
+/* Section writeUs */
+
+.section-writeUs {
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto 0 0;
+    width: 340px;
+}
+
+.section-title-writeUs {
+    padding: 0;
+    text-align: center;
+}
+
+.section-writeUs-form-input {
+    padding: 20px 30px;
+    margin: 0 0 25px 0;
+    width: 100%;
+}
+
+.section-writeUs-form-input-message {
+    padding: 20px 15px 30px 20px;
+    height: 110px;
+    resize: none;
+}
+
+.section-writeUs-form-button {
+    padding: 25px 120px;
+    width: 100%;
+}
+
+.section-writeUs-form-button:hover {
+    padding: 18.75px 90px;
+    margin: 6.25px 0;
+    color: #fff;
+    background-color: #cc9933;
+}
+
+
+/* Footer */
+
+.footer-nav {
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: inherit;
+    padding: 50px;
+    border-radius: 12px;
+    background-color: #333;
+    background-image: url("../img/logo/logo-2.png");
+    background-size: 22.22%;
+    background-position: bottom;
+    background-position-x: 80%;
+}
+
+.footer-nav-info {
+    margin: 0 85px 0 0;
+    width: 300px;
+}
+
+.footer-li {
+    border-radius: 0;
+    color: #fff;
+    background-color: transparent;
+    line-height: 32px;
+}
+
+.footer-nav-info-list-item:not(:last-child) {
+    margin: 0 0 25px 0;
+}
+
+.footer-nav-contacts {
+    width: 360px;
+}
+
+.footer-nav-contacts-list-item:not(:last-child) {
+    margin: 0 0 40px 0;
+}
+
+.footer-nav-contacts-list-item-content {
+    color: #fff;
+    line-height: 32px;
+    font-style: normal;
+}
+
+.footer-nav-contacts-list-item-content-links,
+.footer-nav-contacts-list-item-content-emails {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.footer-nav-contacts-list-item-content-link,
+.footer-nav-contacts-list-item-content-email {
+    margin: 0 0 10px 0;
+}
+
+.footer-nav-social {
+    margin: 0 0 0 auto;
+}
+
+.footer-nav-social-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-nav-social-list-item {
+    margin: 0 0 20px 0;
+    width: 25px;
+    height: 25px;
+}
+
+.footer-social-image-tripadvisor {
+    background-image: url("../img/icon/social/tripadvisor.png");
+}
+
+.footer-social-image-twitter {
+    background-image: url("../img/icon/social/twitter.png");
+}
+
+.footer-social-image-facebook {
+    background-image: url("../img/icon/social/facebook.png");
+}
+
+.footer-social-image-vk {
+    background-image: url("../img/icon/social/vk.png");
+}
+
+.footer-social-image-google-plus {
+    background-image: url("../img/icon/social/google-plus.png");
+}

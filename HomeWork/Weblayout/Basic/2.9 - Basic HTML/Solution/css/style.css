@@ -1,0 +1,18 @@
+.links {
+  display: flex;
+
+}
+
+a {
+  margin-right: 15px;
+}
+
+table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+td, th{
+  border: 1px solid #000;
+  padding: 5px;
+}
