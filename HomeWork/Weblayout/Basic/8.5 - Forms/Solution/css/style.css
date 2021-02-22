@@ -42,6 +42,9 @@
     font-weight: 400;
     color: #333;
     transition: all .1s linear;
+    transition-property: transform, color, background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
 }
 
 a {
@@ -58,6 +61,12 @@ button {
     color: #cc9933;
     background-color: transparent;
     cursor: pointer;
+}
+
+button:hover {
+    transform: scale(0.95);
+    color: #fff;
+    background-color: #cc9933;
 }
 
 ul {
@@ -273,13 +282,6 @@ html {
     margin: 0 30px 0 0;
 }
 
-.section-booking-button:hover {
-    padding: 18.75px 22.5px;
-    margin: 6.25px 37.5px 6.25px 7.5px;
-    color: #fff;
-    background-color: #cc9933;
-}
-
 .section-booking-offer {
     color: #a5a5a5;
 }
@@ -493,8 +495,6 @@ html {
 }
 
 .section-placements-list-item-info-button:hover {
-    padding: 9px 15px;
-    margin: 3px 5px;
     color: #fff;
     background-color: #cc9933;
 }
@@ -576,13 +576,6 @@ html {
     padding: 25px 30px;
 }
 
-.section-contacts-info-button:hover {
-    padding: 18.75px 22.5px;
-    margin: 6.25px 7.5px 6.25px 7.5px;
-    color: #fff;
-    background-color: #cc9933;
-}
-
 
 /* Section writeUs */
 
@@ -613,13 +606,6 @@ html {
 .section-writeUs-form-button {
     padding: 25px 120px;
     width: 100%;
-}
-
-.section-writeUs-form-button:hover {
-    padding: 18.75px 90px;
-    margin: 6.25px 0;
-    color: #fff;
-    background-color: #cc9933;
 }
 
 
