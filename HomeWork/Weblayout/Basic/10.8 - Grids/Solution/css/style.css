@@ -370,7 +370,6 @@ html {
 }
 
 .section-aboutUs__info {
-    padding: 0 240px 0 0;
     line-height: 200%;
     color: var(--font-color-black);
 }
@@ -477,6 +476,7 @@ html {
 }
 
 .section-placements__item {
+    width: 100%;
     max-width: var(--size-block-1-3);
 }
 
@@ -517,6 +517,7 @@ html {
 .section-placements__name-location {
     flex-direction: column;
     align-items: stretch;
+    margin-bottom: 20px;
 }
 
 .section-placements__name {
@@ -524,7 +525,6 @@ html {
 }
 
 .section-placements__location {
-    margin-bottom: 20px;
     color: var(--font-color-light-dark);
 }
 
@@ -574,89 +574,83 @@ html {
 }
 
 .section-tour__title {
-    padding: 0 0 0 5px;
-    margin: 0 0 19px 0;
+    padding-left: 5px;
+    margin-bottom: 9px;
 }
 
 .section-tour__form {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding: 28px;
-    width: 100%;
-    height: 100%;
+    padding: 28px 28px 0 28px;
+    margin: 0;
     border-radius: var(--border-radius);
     background-color: var(--font-color-white);
 }
 
-.section-tour__item {
+.section-tour__col {
     display: flex;
-    flex-direction: column;
-    padding: 0 20px 0 0;
-    margin: 0 20px 0 0;
+}
+
+.section-tour__item {
+    padding-right: 20px;
+    margin-bottom: 28px;
+    width: 100%;
     border-right: 1px solid var(--font-color-e1);
 }
 
 .section-tour__label {
-    margin: 0 0 15px 0;
+    margin-bottom: 15px;
     font-size: 12px;
     color: var(--font-color-black);
 }
 
 .section-tour__label_select {
-    padding: 0 0 0 5px;
+    padding-left: 5px;
 }
 
 .section-tour__select {
-    width: 169px;
+    width: 100%;
     border: none;
 }
 
 .section-tour__input {
     padding: 0;
-    width: 121px;
-    height: 25px;
+    width: 100%;
     border-radius: 0;
     border-bottom: 1px solid #cccccc;
 }
 
-.section-tour__input_date {
-    width: 135px;
-    border: none;
-}
-
 .section-tour__button {
-    padding: 13px 30px;
+    padding: auto;
+    margin-bottom: 28px;
+    width: 100%;
 }
 
 
 /* Section contacts */
 
 .section-contacts__title {
-    margin: 0 0 26px 0;
+    margin-bottom: 26px;
 }
 
 .section-contacts__container {
-    padding: 44px 44px 46px 46px;
+    padding: 44px 32px 46px 34px;
+    margin: 0;
     border-radius: var(--border-radius);
     background-color: var(--font-color-white);
 }
 
-.section-contacts__info {
-    margin: 0 50px 0 0;
-    width: 50%;
-    max-width: 375px;
-    border-radius: var(--border-radius);
-    background-color: var(--font-color-white);
+.section-contacts__col {
+    display: flex;
 }
 
-.section-contacts__list {
-    margin: 0 0 45px 0;
+.section-contacts__col_item {
+    padding-right: 26px;
 }
 
 .section-contacts__item {
-    display: flex;
-    padding: 0 0 23px 0;
-    margin: 0 0 25px 0;
+    align-items: flex-start;
+    padding-bottom: 23px;
+    margin-bottom: 25px;
+    width: 100%;
     border-radius: 0;
     border-bottom: solid 1px #ccc;
 }
@@ -669,8 +663,6 @@ html {
 }
 
 .section-contacts__content {
-    display: flex;
-    flex-direction: column;
     width: 240px;
     text-align: left;
     font-style: normal;
@@ -688,12 +680,11 @@ html {
 
 .section-contacts__button {
     padding: 30px;
+    margin-top: 20px;
 }
 
 .section-contacts__image {
-    width: 100%;
-    max-width: 653px;
-    height: 528px;
+    border-radius: var(--border-radius);
     background-image: url("../img/example/contacts-example.jpg");
 }
 
@@ -701,21 +692,17 @@ html {
 /* Footer */
 
 .footer__nav {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: inherit;
+    /* flex-wrap: nowrap;
+    justify-content: flex-start; 
+    align-items: inherit; */
     padding: 44px 51px 55px 52px;
+    margin: 0;
     border-radius: var(--border-radius);
     background-color: var(--font-color-dark);
     background-image: url("../img/logo/logo-2.svg");
     background-size: 254px;
     background-position: bottom;
     background-position-x: 80%;
-}
-
-.footer__info {
-    margin: 0 85px 0 0;
-    width: 300px;
 }
 
 .footer__li {
@@ -727,15 +714,13 @@ html {
 
 .footer__info-item {
     line-height: 190%;
-}
-
-.footer__info-item:not(:last-child) {
     margin: 0 0 35px 0;
 }
 
-.footer__contacts {
-    width: 360px;
-}
+
+/* .footer__info-item:not(:last-child) {
+    margin: 0 0 35px 0;
+} */
 
 .footer__contacts-item:not(:last-child) {
     margin: 0 0 35px 0;
@@ -770,13 +755,14 @@ html {
 }
 
 .footer__social-item {
+    margin: 0 0 0 auto;
     width: 25px;
     height: 25px;
     opacity: .5;
 }
 
 .footer__social-item:not(:last-child) {
-    margin: 0 0 20px 0;
+    margin-bottom: 20px;
 }
 
 .footer-social-image-tripadvisor {
