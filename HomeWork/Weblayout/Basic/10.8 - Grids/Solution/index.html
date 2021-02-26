@@ -14,14 +14,23 @@
 
     <header class="header">
         <div class="container">
-            <div class="flex-row header__info">
-                <a class="background-image header__logo" href=""></a>
-                <a class="header__phone" href="tel:+74953225448">+7 495 322 54 48</a>
-                <a class="header__signIn" href="">Личный кабинет</a>
+            <div class="row header__info">
+                <div class="col-12 col-sm-4 col-mg-3 col-lg-3 header__info-col">
+                    <a class="background-image header__logo" href=""></a>
+                </div>
+
+                <div class="col-12 col-sm-6 col-mg-7 col-lg-7 header__info-col">
+                    <a class=" header__phone" href="tel:+74953225448">+7 495 322 54 48</a>
+                </div>
+
+                <div class="col-12 col-sm-2 col-mg-2 col-lg-2 header__info-col">
+                    <a class="header__signIn" href="">Личный кабинет</a>
+                </div>
+
             </div>
 
-            <nav class="flex-row header__nav">
-                <ul class="flex-row header__list">
+            <nav class="row header__nav">
+                <ul class="col-8 header__list-col flex-row header__list">
                     <li class="header__item">
                         <a class="header__link" href="#aboutUs">О нас</a>
                     </li>
@@ -41,9 +50,12 @@
                         <a class="header__link" href="#contacts">Контакты</a>
                     </li>
                 </ul>
-                <div class="flex-row header__buttons">
-                    <a class="btn header__btn header__btn-tour" href="#tour">Хочу тур</a>
-                    <button class="btn header__btn">Обратный звонок</button>
+
+                <div class="col-4 header__buttons-col">
+                    <div class="flex-row header__buttons">
+                        <a class="btn header__btn header__btn-tour" href="#tour">Хочу тур</a>
+                        <button class="btn header__btn">Обратный звонок</button>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -52,50 +64,54 @@
     <main class="main">
 
         <section class="section-specials">
-            <div class="container">
+            <div class="container container-card">
                 <h2 class="section-title">Спецпредложения</h2>
-                <div class="flex-row">
+                <div class="row">
 
-                    <div class="flex-row section-special__example">
-                        <div class="background-image small-example section-special__high-example">
-                            <div class="section-special__info section-special__info_small">
-                                <h3 class="section-special__heading section-special__heading_small">Мальдивские острова</h3>
-                                <div class="section-special__price-more">
-                                    <span class="section-special__price section-special__price_small">от 55 000 р</span>
-                                    <a class="flex-row link-more" href="">Подробнее
+                    <div class="col-md-12 col-lg-6 section-specials__col">
+                        <div class="flex-row section-special__example">
+                            <div class="background-image small-example section-special__high-example">
+                                <div class="section-special__info section-special__info_small">
+                                    <h3 class="section-special__heading section-special__heading_small">Мальдивские острова</h3>
+                                    <div class="section-special__price-more">
+                                        <span class="section-special__price section-special__price_small">от 55 000 р</span>
+                                        <a class="flex-row link-more" href="">Подробнее
                                         <svg class="arrow special-arrow" width="11" height="18" viewbox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#CC9933" stroke-width="2"/>
                                         </svg>
                                     </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="background-image small-example section-special__down-example">
-                            <div class="section-special__info section-special__info_small">
-                                <h3 class="section-special__heading section-special__heading_small">Горящий тур на остров Крит</h3>
-                                <div class="section-special__price-more">
-                                    <span class="section-special__price section-special__price_small">от 30 000 р</span>
-                                    <a class="flex-row link-more" href="">Подробнее
+                            <div class="background-image small-example section-special__down-example">
+                                <div class="section-special__info section-special__info_small">
+                                    <h3 class="section-special__heading section-special__heading_small">Горящий тур на остров Крит</h3>
+                                    <div class="section-special__price-more">
+                                        <span class="section-special__price section-special__price_small">от 30 000 р</span>
+                                        <a class="flex-row link-more" href="">Подробнее
                                         <svg class="arrow special-arrow" width="11" height="18" viewbox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#CC9933" stroke-width="2"/>
                                         </svg>
                                     </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="background-image section-special__example section-special__example_right">
-                        <div class="section-special__info">
-                            <h3 class="section-special__heading">Номера категории люкс</h3>
-                            <div class="section-special__price-more">
-                                <span class="section-special__price">от 5 000 р</span>
-                                <a class="flex-row link-more" href="">Подробнее
+                    <div class="col-md-12 col-lg-6 section-specials__col">
+                        <div class="background-image section-special__example section-special__example_right">
+                            <div class="section-special__info">
+                                <h3 class="section-special__heading">Номера категории люкс</h3>
+                                <div class="section-special__price-more">
+                                    <span class="section-special__price">от 5 000 р</span>
+                                    <a class="flex-row link-more" href="">Подробнее
                                     <svg class="arrow special-arrow" width="11" height="18" viewbox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#CC9933" stroke-width="2"/>
                                     </svg>
                                 </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -260,7 +276,7 @@
                 <h2 class="section-title section-placements__title">Размещение</h2>
                 <ul class="row">
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-1.jpg" alt="Фото первого отеля" />
@@ -287,7 +303,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-2.jpg" alt="Фото второго отеля" />
@@ -315,7 +331,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-3.jpg" alt="Фото третьего отеля" />
@@ -343,7 +359,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-4.jpg" alt="Фото четвертого отеля" />
@@ -371,7 +387,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-5.jpg" alt="Фото пятого отеля" />
@@ -399,7 +415,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-6.jpg" alt="Фото шестого отеля" />
@@ -427,7 +443,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-7.jpg" alt="Фото седьмого отеля" />
@@ -455,7 +471,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="section-placements__image">
                                 <img src="img/placements/placements-8.jpg" alt="Фото восьмого отеля" />
@@ -483,7 +499,7 @@
                         </div>
                     </li>
 
-                    <li class="col-12 col-sm-6 col-xl-4 section-placements__col">
+                    <li class="col-12 col-md-6 col-lg-4 section-placements__col">
                         <div class="list-item section-placements__item">
                             <div class="background-image flex-row section-placements__last-info">
                                 <a class="flex-row section-placements__link" href="">Посмотреть все варианты
@@ -529,7 +545,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item section-tour__item_date">
-                                <label for="section-tour__select" class="section-tour__label">Дата прибытия</label>
+                                <label for="section-tour__input-date" class="section-tour__label">Дата прибытия</label>
                                 <input class="section-tour__input section-tour__input_date" required type="date" id="section-tour__input-date" name="date" value="2021-10-18">
                             </div>
                         </div>
@@ -565,14 +581,14 @@
                         <ul class="row section-contacts__list">
 
                             <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item ">
+                                <div class="flex-row section-contacts__item">
                                     <h3 class="section-contacts__heading">Адрес</h3>
                                     <address class="section-contacts__content">Москва, улица Юности, дом 5 строение 4, офис 2</address>
                                 </div>
                             </li>
 
                             <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item ">
+                                <div class="flex-row section-contacts__item">
                                     <h3 class="section-contacts__heading">Телефоны</h3>
                                     <div class="flex-row section-contacts__content">
                                         <a class="section-contacts__link section-contacts__phone" href="tel:+74995356434">+7 (499) 535-64-34</a>
@@ -582,7 +598,7 @@
                             </li>
 
                             <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item ">
+                                <div class="flex-row section-contacts__item">
                                     <h3 class="section-contacts__heading">E-mail</h3>
                                     <div class="flex-row section-contacts__content">
                                         <span class="section-contacts__mail-more"><a class="section-contacts__link section-contacts__mail" href="mailto:lg.oona@mail.ru">lg.oona@mail.ru</a> по вопросам бронирования</span>
@@ -592,7 +608,7 @@
                             </li>
 
                             <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item ">
+                                <div class="flex-row section-contacts__item">
                                     <h3 class="section-contacts__heading">График</h3>
                                     <span class="section-contacts__content">Понедельник - пятница, с&nbsp;10:00 до 19:00</span>
                                 </div>
@@ -619,7 +635,7 @@
         <div class="container">
             <nav class="row background-image footer__nav">
 
-                <ul class="col-12 col-md-4">
+                <ul class="col-12 col-md-5">
 
                     <li class="footer__li footer__info-item">
                         © 2012-2020 Управляющая компания Объединенной сети «Лагуна Хотелс»
@@ -635,7 +651,7 @@
 
                 </ul>
 
-                <ul class="col-12 col-md-4">
+                <ul class="col-12 col-md-5">
 
                     <li class="footer__li footer__contacts-item">
                         <address class="footer__contacts-content">11710, улица Юности, дом 5 строение 4, офис 2</address>
@@ -657,7 +673,7 @@
 
                 </ul>
 
-                <ul class="col-12 col-md-4">
+                <ul class="col-12 col-md-2">
 
                     <li class="footer__li footer__social-item">
                         <a href="">
