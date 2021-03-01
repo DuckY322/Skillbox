@@ -223,6 +223,7 @@ html {
 
 .header__nav {
     flex-wrap: nowrap;
+    justify-content: flex-start;
     padding: 7px 45px;
     margin: 0;
     border-radius: var(--border-radius);
@@ -231,6 +232,7 @@ html {
 
 .header__list {
     padding: 10px 11px 10px 0;
+    margin-right: 11px;
     border-right: 1px solid var(--font-color-e1);
 }
 
@@ -249,16 +251,9 @@ html {
 }
 
 .header__buttons {
-    flex-wrap: nowrap;
-}
-
-.header__btn {
-    margin: 7px 0;
-}
-
-.header__btn-tour {
+    justify-content: space-between;
     margin-left: 45px;
-    margin-right: 40px;
+    width: 30%;
 }
 
 
@@ -687,7 +682,7 @@ html {
 /* Footer */
 
 .footer__nav {
-    padding: 44px 51px 55px 52px;
+    padding: 44px 39px 55px 40px;
     margin: 0;
     border-radius: var(--border-radius);
     background-color: var(--font-color-dark);
@@ -706,16 +701,18 @@ html {
 
 .footer__info-item {
     line-height: 190%;
-    margin: 0 100px 35px 0;
+}
+
+.footer__info-item:not(:last-child) {
+    margin: 0 0 35px 0;
 }
 
 .footer__contacts-item {
-    margin: 0 0 35px 0;
+    margin: 0 0 35px 60px;
 }
 
 .footer__contacts-content {
     font-style: normal;
-    line-height: 190%;
     color: var(--font-color-white);
 }
 
@@ -728,6 +725,7 @@ html {
 
 .footer__contacts-link {
     margin: 0 0 5px 0;
+    line-height: 190%;
 }
 
 .footer__social {
