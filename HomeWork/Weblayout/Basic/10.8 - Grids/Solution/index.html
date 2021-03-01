@@ -8,29 +8,21 @@
     <link rel="shortcut icon" href="img/logo/favicon.png" type="image/png">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/breakpoints.css">
 </head>
 
 <body>
 
     <header class="header">
         <div class="container">
-            <div class="row header__info">
-                <div class="col-12 col-sm-4 col-mg-3 col-lg-3 header__info-col">
-                    <a class="background-image header__logo" href=""></a>
-                </div>
-
-                <div class="col-12 col-sm-6 col-mg-7 col-lg-7 header__info-col">
-                    <a class=" header__phone" href="tel:+74953225448">+7 495 322 54 48</a>
-                </div>
-
-                <div class="col-12 col-sm-2 col-mg-2 col-lg-2 header__info-col">
-                    <a class="header__signIn" href="">Личный кабинет</a>
-                </div>
-
+            <div class="flex-row header__info">
+                <a class="background-image header__logo" href=""></a>
+                <a class=" header__phone" href="tel:+74953225448">+7 495 322 54 48</a>
+                <a class="header__signIn" href="">Личный кабинет</a>
             </div>
 
-            <nav class="row header__nav">
-                <ul class="col-8 header__list-col flex-row header__list">
+            <nav class="flex-row header__nav">
+                <ul class="flex-row header__list">
                     <li class="header__item">
                         <a class="header__link" href="#aboutUs">О нас</a>
                     </li>
@@ -51,11 +43,9 @@
                     </li>
                 </ul>
 
-                <div class="col-4 header__buttons-col">
-                    <div class="flex-row header__buttons">
-                        <a class="btn header__btn header__btn-tour" href="#tour">Хочу тур</a>
-                        <button class="btn header__btn">Обратный звонок</button>
-                    </div>
+                <div class="flex-row header__buttons">
+                    <a class="btn header__btn header__btn-tour" href="#tour">Хочу тур</a>
+                    <button class="btn header__btn">Обратный звонок</button>
                 </div>
             </nav>
         </div>
@@ -105,7 +95,7 @@
                             <div class="section-special__info">
                                 <h3 class="section-special__heading">Номера категории люкс</h3>
                                 <div class="section-special__price-more">
-                                    <span class="section-special__price">от 5 000 р</span>
+                                    <span class="section-special__price">от 5000 р</span>
                                     <a class="flex-row link-more" href="">Подробнее
                                     <svg class="arrow special-arrow" width="11" height="18" viewbox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#CC9933" stroke-width="2"/>
@@ -122,14 +112,10 @@
 
         <section class="section-aboutUs" id="aboutUs">
             <div class="container">
-                <div class="row">
-                    <div class="col-12 col-sm-11 col-md-10 col-lg-9">
-                        <h2 class="section-title section-aboutUs__title">О нас</h2>
-                        <p class="section-aboutUs__info">Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям. Идейные соображения высшего порядка,
-                            а также дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Равным образом сложившаяся структура организации требуют
-                            определения и уточнения существенных финансовых и административных условий.</p>
-                    </div>
-                </div>
+                <h2 class="section-title section-aboutUs__title">О нас</h2>
+                <p class="section-aboutUs__info">Идейные соображения высшего порядка, а также сложившаяся структура организации влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям. Идейные соображения высшего порядка, а также
+                    дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Равным образом сложившаяся структура организации требуют определения и
+                    уточнения существенных финансовых и административных условий.</p>
             </div>
         </section>
 
@@ -523,8 +509,8 @@
 
                         <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item">
-                                <label for="section-tour__select-departureCity" class="section-tour__label section-tour__label_select">Город вылета</label>
-                                <select class="section-tour__select" id="section-tour__select-departureCity" name="departureCity">
+                                <label class="section-tour__label section-tour__label_select" for="section-tour__select_departureCity">Город вылета</label>
+                                <select class="section-tour__select" id="section-tour__select_departureCity" name="departureCity">
                                 <option>Москва</option>
                                 <option>Санкт-Петербург</option>
                                 <option>Новосибирск</option>
@@ -534,8 +520,8 @@
 
                         <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item">
-                                <label for="section-tour__select-country" class="section-tour__label section-tour__label_select">Страна</label>
-                                <select class="section-tour__select" id="section-tour__select-country" name="country">
+                                <label class="section-tour__label section-tour__label_select" for="section-tour__select_country">Страна</label>
+                                <select class="section-tour__select" id="section-tour__select_country" name="country">
                                 <option>США</option>
                                 <option>Германия</option>
                                 <option>Англия</option>
@@ -543,28 +529,28 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
-                            <div class="flex-row section-tour__item section-tour__item_date">
-                                <label for="section-tour__input-date" class="section-tour__label">Дата прибытия</label>
-                                <input class="section-tour__input section-tour__input_date" required type="date" id="section-tour__input-date" name="date" value="2021-10-18">
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-3 section-tour__col">
+                            <div class="flex-row section-tour__item">
+                                <label class="section-tour__label" for="section-tour__input_date">Дата прибытия</label>
+                                <input class="section-tour__input" required type="date" id="section-tour__input_date" name="date" value="2021-10-18">
                             </div>
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item">
-                                <label for="section-tour__input-countOfNights" class="section-tour__label">Ночей</label>
-                                <input class="section-tour__input" required type="number" id="section-tour__input-countOfNights" name="countOfNights" placeholder="Ночей" value="6" min="1">
+                                <label class="section-tour__label" for="section-tour__input_countOfNights">Ночей</label>
+                                <input class="section-tour__input" required type="number" id="section-tour__input_countOfNights" name="countOfNights" placeholder="Ночей" value="6" min="1">
                             </div>
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item">
-                                <label for="section-tour__input-countOfTourists" class="section-tour__label">Туристы</label>
-                                <input class="section-tour__input" required type="number" id="section-tour__input-countOfTourists" name="countOfTourists" placeholder="Туристы" value="2" min="1">
+                                <label class="section-tour__label" for="section-tour__input_countOfTourists">Туристы</label>
+                                <input class="section-tour__input" required type="number" id="section-tour__input_countOfTourists" name="countOfTourists" placeholder="Туристы" value="2" min="1">
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-1 section-tour__col">
                             <button class="btn section-tour__button" type="submit">Найты</button>
                         </div>
                     </form>

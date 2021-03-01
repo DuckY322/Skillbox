@@ -132,8 +132,8 @@ html {
 }
 
 .section-title {
-    padding: 0 0 0 40px;
-    margin: 0 0 20px 0;
+    padding-left: 40px;
+    margin-bottom: 20px;
     max-width: 280px;
     font-size: 40px;
 }
@@ -183,28 +183,22 @@ html {
 }
 
 .arrow {
-    margin: 0 0 0 5px;
+    margin-left: 5px;
 }
 
 
 /*Header*/
 
 .header {
-    padding: 30px 0 0 0;
+    padding-top: 30px;
 }
 
 .header__info {
-    display: flex;
-    align-items: center;
-    margin: 0 0 30px 0;
-}
-
-.header__info-col {
-    display: flex;
-    align-items: center;
+    margin-bottom: 30px;
 }
 
 .header__logo {
+    margin-right: 40px;
     width: 261px;
     height: 54px;
     border-radius: var(--border-radius);
@@ -212,10 +206,10 @@ html {
 }
 
 .header__phone {
-    margin: 17px 0;
     font-size: 20px;
     font-weight: 500;
     color: var(--font-color-mefium-dark);
+    transform: translateY(1px);
 }
 
 .header__phone:hover {
@@ -223,27 +217,27 @@ html {
 }
 
 .header__signIn {
-    margin: 17px 0 17px auto;
+    margin-left: auto;
+    transform: translateY(1px);
 }
 
 .header__nav {
-    padding: 7px 33px;
+    flex-wrap: nowrap;
+    padding: 7px 45px;
     margin: 0;
     border-radius: var(--border-radius);
     background-color: var(--font-color-white);
 }
 
 .header__list {
-    margin: 10px 0 10px 0;
-}
-
-.header__list-col {
+    padding: 10px 11px 10px 0;
     border-right: 1px solid var(--font-color-e1);
 }
 
 .header__item {
     margin: 10px 45px 10px 0;
     border-radius: 0;
+    transform: translateY(-1px);
 }
 
 .header__link {
@@ -254,14 +248,8 @@ html {
     color: var(--font-color-lagoona);
 }
 
-.header__buttons-col {
-    display: flex;
-    align-items: center;
-}
-
 .header__buttons {
-    justify-content: space-between;
-    width: 100%;
+    flex-wrap: nowrap;
 }
 
 .header__btn {
@@ -270,7 +258,7 @@ html {
 
 .header__btn-tour {
     margin-left: 45px;
-    margin-right: auto;
+    margin-right: 40px;
 }
 
 
@@ -377,6 +365,7 @@ html {
 }
 
 .section-aboutUs__info {
+    padding-right: 281px;
     line-height: 200%;
     color: var(--font-color-black);
 }
@@ -580,24 +569,25 @@ html {
 }
 
 .section-tour__title {
-    padding-left: 5px;
-    margin-bottom: 9px;
+    padding-left: 0;
+    margin-bottom: 19px;
 }
 
 .section-tour__form {
-    padding: 28px 28px 0 28px;
-    margin: 0;
+    padding: 28px 15px 0 15px;
+    margin: 0 0 0 5px;
     border-radius: var(--border-radius);
     background-color: var(--font-color-white);
 }
 
 .section-tour__col {
     display: flex;
+    padding: 0;
 }
 
 .section-tour__item {
     padding-right: 20px;
-    margin-bottom: 28px;
+    margin: 0 20px 28px 0;
     width: 100%;
     border-right: 1px solid var(--font-color-e1);
 }
