@@ -21,31 +21,35 @@
                 <a class="header__signIn" href="">Личный кабинет</a>
             </div>
 
-            <nav class="flex-row header__nav">
-                <ul class="flex-row header__list">
-                    <li class="header__item">
-                        <a class="header__link" href="#aboutUs">О нас</a>
-                    </li>
-                    <li class="header__item">
-                        <a class="header__link" href="#services">Услуги</a>
-                    </li>
-                    <li class="header__item">
-                        <a class="header__link" href="#advantages">Преимущества</a>
-                    </li>
-                    <li class="header__item">
-                        <a class="header__link" href="#placements">Размещение</a>
-                    </li>
-                    <li class="header__item">
-                        <a class="header__link" href="">Блог</a>
-                    </li>
-                    <li class="header__item">
-                        <a class="header__link" href="#contacts">Контакты</a>
-                    </li>
+            <nav class="row header__nav">
+                <ul class="col-12 col-xl-8 header__list_col">
+                    <div class="flex-row header__list">
+                        <li class="header__item">
+                            <a class="header__link" href="#aboutUs">О нас</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#services">Услуги</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#advantages">Преимущества</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#placements">Размещение</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="">Блог</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="#contacts">Контакты</a>
+                        </li>
+                    </div>
                 </ul>
 
-                <div class="flex-row header__buttons">
-                    <a class="btn" href="#tour">Хочу тур</a>
-                    <button class="btn">Обратный звонок</button>
+                <div class="col-12 col-xl-4 header__buttons_col">
+                    <div class="flex-row header__buttons">
+                        <a class="btn header__button" href="#tour">Хочу тур</a>
+                        <button class="btn header__button">Обратный звонок</button>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -493,7 +497,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item">
-                                <label class="section-tour__label section-tour__label_select" for="section-tour__select_departureCity">Город вылета</label>
+                                <label class="section-tour__label" for="section-tour__select_departureCity">Город вылета</label>
                                 <select class="section-tour__select" id="section-tour__select_departureCity" name="departureCity">
                                 <option>Москва</option>
                                 <option>Санкт-Петербург</option>
@@ -504,7 +508,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item">
-                                <label class="section-tour__label section-tour__label_select" for="section-tour__select_country">Страна</label>
+                                <label class="section-tour__label" for="section-tour__select_country">Страна</label>
                                 <select class="section-tour__select" id="section-tour__select_country" name="country">
                                 <option>США</option>
                                 <option>Германия</option>
@@ -513,7 +517,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 col-xl-3 section-tour__col">
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col">
                             <div class="flex-row section-tour__item">
                                 <label class="section-tour__label" for="section-tour__input_date">Дата прибытия</label>
                                 <input class="section-tour__input" required type="date" id="section-tour__input_date" name="date" value="2021-10-18">
@@ -534,7 +538,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-lg-4 col-xl-1 section-tour__col">
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-2 section-tour__col section-tour__col_btn">
                             <button class="btn section-tour__button" type="submit">Найты</button>
                         </div>
                     </form>
@@ -547,51 +551,41 @@
                 <h2 class="section-title section-contacts__title">Контакты</h2>
                 <div class="row section-contacts__container">
 
-                    <div class="col-12 col-md-5 col-xl-5 section-contacts__col">
-                        <ul class="row section-contacts__list">
+                    <div class="col-12 col-md-5 section-contacts__col">
+                        <ul class="">
 
-                            <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item">
-                                    <h3 class="section-contacts__heading">Адрес</h3>
-                                    <address class="section-contacts__content">Москва, улица Юности, дом 5 строение 4, офис 2</address>
+                            <li class="flex-row section-contacts__item">
+                                <h3 class="section-contacts__heading">Адрес</h3>
+                                <address class="section-contacts__content">Москва, улица Юности, дом 5 строение 4, офис 2</address>
+                            </li>
+
+                            <li class="flex-row section-contacts__item">
+                                <h3 class="section-contacts__heading">Телефоны</h3>
+                                <div class="flex-row section-contacts__content">
+                                    <a class="section-contacts__link section-contacts__phone" href="tel:+74995356434">+7 (499) 535-64-34</a>
+                                    <a class="section-contacts__link section-contacts__phone" href="tel:+74950050544">+7 (495) 005-05-44</a>
                                 </div>
                             </li>
 
-                            <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item">
-                                    <h3 class="section-contacts__heading">Телефоны</h3>
-                                    <div class="flex-row section-contacts__content">
-                                        <a class="section-contacts__link section-contacts__phone" href="tel:+74995356434">+7 (499) 535-64-34</a>
-                                        <a class="section-contacts__link section-contacts__phone" href="tel:+74950050544">+7 (495) 005-05-44</a>
-                                    </div>
+                            <li class="flex-row section-contacts__item">
+                                <h3 class="section-contacts__heading">E-mail</h3>
+                                <div class="flex-row section-contacts__content">
+                                    <span class="section-contacts__mail-more"><a class="section-contacts__link section-contacts__mail" href="mailto:lg.oona@mail.ru">lg.oona@mail.ru</a> по вопросам бронирования</span>
+                                    <span class="section-contacts__mail-more"><a class="section-contacts__link section-contacts__mail" href="mailto:hotels.ln@mail.ru">hotels.ln@mail.ru</a> по вопросам сотрудничества</span>
                                 </div>
                             </li>
 
-                            <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item">
-                                    <h3 class="section-contacts__heading">E-mail</h3>
-                                    <div class="flex-row section-contacts__content">
-                                        <span class="section-contacts__mail-more"><a class="section-contacts__link section-contacts__mail" href="mailto:lg.oona@mail.ru">lg.oona@mail.ru</a> по вопросам бронирования</span>
-                                        <span class="section-contacts__mail-more"><a class="section-contacts__link section-contacts__mail" href="mailto:hotels.ln@mail.ru">hotels.ln@mail.ru</a> по вопросам сотрудничества</span>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="col-12 section-contacts__col section-contacts__col_item">
-                                <div class="flex-row section-contacts__item">
-                                    <h3 class="section-contacts__heading">График</h3>
-                                    <span class="section-contacts__content">Понедельник - пятница, с&nbsp;10:00 до 19:00</span>
-                                </div>
-                            </li>
-
-                            <li class="col-12 section-contacts__col">
-                                <button class="btn section-contacts__button">Построить маршрут</button>
+                            <li class="flex-row section-contacts__item">
+                                <h3 class="section-contacts__heading">График</h3>
+                                <span class="section-contacts__content">Понедельник - пятница, с&nbsp;10:00 до 19:00</span>
                             </li>
 
                         </ul>
+
+                        <button class="btn section-contacts__button">Построить маршрут</button>
                     </div>
 
-                    <div class="col-12 col-md-7 col-xl-7 section-contacts__col">
+                    <div class="col-12 col-md-7 section-contacts__col_img">
                         <div class="background-image section-contacts__image"></div>
                     </div>
 
@@ -630,14 +624,14 @@
                     <li class="footer__li footer__contacts-item">
                         <div class="footer__contacts-links">
                             <a class="footer__contacts-link" href="tel:+74995356434">+7 (499) 535-64-34</a>
-                            <a href="tel:+74950050544">+7 (495) 005-05-44</a>
+                            <a class="footer__contacts-link" href="tel:+74950050544">+7 (495) 005-05-44</a>
                         </div>
                     </li>
 
                     <li class="footer__li footer__contacts-item">
                         <div class="footer__contacts-emails">
                             <a class="footer__contacts-link" href="mailto:lg.oona@mail.ru">lg.oona@mail.ru</a>
-                            <a href="mailto:hotels.ln@mail.ru">hotels.ln@mail.ru</a>
+                            <a class="footer__contacts-link" href="mailto:hotels.ln@mail.ru">hotels.ln@mail.ru</a>
                         </div>
                     </li>
 
