@@ -306,6 +306,12 @@ html {
 }
 
 .section-special__example_right {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    min-height: 540px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
     background-image: url("../img/example/right-example.jpg");
 }
 
@@ -646,7 +652,7 @@ html {
     display: flex;
     flex-direction: column;
     padding: 0;
-    padding-right: 38px;
+    padding-right: 12px;
 }
 
 .section-contacts__item {
