@@ -1,0 +1,328 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2"), url("../fonts/Montserrat-SemiBold.woff") format("woff");
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-ExtraBold.woff2") format("woff2"), url("../fonts/Montserrat-ExtraBold.woff") format("woff");
+    font-display: swap;
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+/*Global css*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 121%;
+    font-weight: 400;
+    color: var(--color-3);
+}
+
+*:active,
+*:hover,
+*:focus,
+*:active,
+*:hover,
+*:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+textarea,
+input {
+    padding: 0 24px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 200%;
+    font-family: "Montserrat", sans-serif;
+}
+
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 200%;
+    color: var(--color-CA);
+}
+
+body {
+    background-color: var(--color-EC);
+}
+
+html {
+    font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    --color-F: #fff;
+    --color-0: #000;
+    --color-2: #222;
+    --color-3: #333;
+    --color-41: #414141;
+    --color-6: #666;
+    --color-E5: #E5E5E5;
+    --color-EC: #ECECEC;
+    --color-CA: #CACACA;
+    --color-orange: #FF9900;
+    --margin-blocks: 24px;
+    --margin-container: 100px;
+}
+
+.container-main {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    background-color: var(--color-F);
+}
+
+.container {
+    margin: 0 auto var(--margin-container) auto;
+    max-width: 1794px;
+}
+
+.section-title {
+    font-size: 48px;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    background-size: cover;
+}
+
+.btn {
+    padding: 19px 38px;
+    border: solid 3px var(--color-orange);
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-F);
+    background-color: var(--color-orange);
+    cursor: pointer;
+}
+
+
+/* Header */
+
+.header {
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+}
+
+.header__container {
+    justify-content: space-between;
+    padding: 14px 23px 14px 12px;
+    height: 100%;
+}
+
+.header__logo {
+    width: 224px;
+    height: 72px;
+    background-image: url(../img/header/logo.png);
+}
+
+.header__list {
+    margin-right: 71px;
+}
+
+.header__item:not(:last-child) {
+    margin-right: 85px;
+}
+
+.header__link {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.header__button {
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    background-image: url(../img/header/search.svg);
+}
+
+
+/* section-design-solutions */
+
+.section-design-solutions__container {
+    position: relative;
+    height: 620px;
+}
+
+.section-design-solutions__info {
+    position: absolute;
+    top: 103px;
+    left: 78px;
+    width: 842px;
+}
+
+.section-design-solutions__title {
+    margin-bottom: 32px;
+    font-size: 70px;
+    font-weight: 800;
+    color: var(--color-F);
+}
+
+.section-design-solutions__sub-title {
+    margin-bottom: 97px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-F);
+}
+
+.section-design-solutions__button {
+    padding: 24.5px 43.20px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* section-about-us__container */
+
+.section-about-us__title {
+    margin-bottom: 10px;
+}
+
+.section-about-us__sub-title {
+    padding-right: 535px;
+    margin-bottom: 44px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 200%;
+}
+
+.section-about-us__cards {
+    justify-content: space-between;
+    height: 622px;
+}
+
+.section-about-us__example {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    max-width: 870px;
+}
+
+.section-about-us__example-more {
+    position: absolute;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    padding: 44px 68px 42px 54px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.section-about-us__example-text {
+    width: 66%;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 200%;
+    color: var(--color-F);
+}
+
+.section-about-us__example-button {
+    padding: 20px 38px;
+    background-color: transparent;
+}
+
+.section-about-us__double-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+    max-width: 870px;
+}
+
+.section-about-us__card {
+    display: flex;
+    align-items: center;
+    padding-left: 63px;
+    height: 50%;
+    max-height: 295px;
+    border: solid 1px var(--color-CA);
+}
+
+.section-about-us__card-image_top {
+    margin-right: 59px;
+    width: 178px;
+    height: 137px;
+    background-image: url(../img/about-us/cube.svg);
+}
+
+.section-about-us__card-image_lower {
+    margin-right: 59px;
+    width: 178px;
+    height: 153px;
+    background-image: url(../img/about-us/gear.svg);
+}
+
+.section-about-us__card-text {
+    width: 452px;
+    font-size: 16px;
+    line-height: 200%;
+}
+
+.section-about-us__card-text_title {
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+}
