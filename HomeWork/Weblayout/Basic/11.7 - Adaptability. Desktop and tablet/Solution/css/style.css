@@ -212,12 +212,12 @@ html {
 }
 
 .header__item:hover:after,
-.header__item:focus:after {
+.header__item:focus:after,
+.header__item:active:after {
     width: 100%;
 }
 
 .header__item:active:after {
-    width: 100%;
     background-color: var(--color-dark-orange);
 }
 
@@ -245,12 +245,11 @@ html {
     background-color: transparent;
 }
 
-.header__button svg rect {
-    transition: fill var(--anim-time) ease-in-out;
-}
-
+.header__button svg rect,
 .header__button svg circle {
-    transition: stroke var(--anim-time) ease-in-out;
+    transition-property: fill, stroke;
+    transition-duration: var(--anim-time);
+    transition-timing-function: ease-in-out;
 }
 
 .header__button:hover svg rect {
@@ -481,13 +480,13 @@ html {
     transition-timing-function: ease-in-out;
 }
 
-.section-how-we-work__contract:hover {
+.section-how-we-work__contract:hover,
+.section-how-we-work__contract:active {
     color: var(--color-F);
     background-color: var(--color-6);
 }
 
 .section-how-we-work__contract:active {
-    color: var(--color-F);
     background-color: var(--color-0);
 }
 
