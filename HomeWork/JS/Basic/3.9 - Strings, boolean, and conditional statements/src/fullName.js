@@ -7,38 +7,16 @@ let firstSymbolNewSurname = "";
 let bodyNewName = "";
 let bodyNewSurname = "";
 
-let newName = "";
-let newSurname = "";
+firstSymbolNewName = oldName.substr(0, 1).toUpperCase();
+bodyNewName = oldName.substr(1).toLowerCase();
+firstSymbolNewSurname = oldSurname.substr(0, 1).toUpperCase();
+bodyNewSurname = oldSurname.substr(1).toLowerCase();
 
-if (oldName.substr(0, 1) !== oldName.substr(0, 1).toUpperCase()) {
-    firstSymbolNewName = oldName.substr(0, 1).toUpperCase();
-} else {
-    firstSymbolNewName = oldName.substr(0, 1);
-}
+console.log(`${firstSymbolNewName}${bodyNewName} ${firstSymbolNewSurname}${bodyNewSurname}`);
 
-if (oldName.substr(1) !== oldName.substr(1).toLowerCase()) {
-    bodyNewName = oldName.substr(1).toLowerCase();
-} else {
-    bodyNewName = oldName.substr(1);
-}
-
-if (oldSurname.substr(0, 1) !== oldSurname.substr(0, 1).toUpperCase()) {
-    firstSymbolNewSurname = oldSurname.substr(0, 1).toUpperCase();
-} else {
-    firstSymbolNewSurname = oldSurname.substr(0, 1)
-}
-
-if (oldSurname.substr(1) !== oldSurname.substr(1).toLowerCase()) {
-    bodyNewSurname = oldSurname.substr(1).toLowerCase();
-} else {
-    bodyNewSurname = oldSurname.substr(1)
-}
-
-newName = firstSymbolNewName + bodyNewName;
-newSurname = firstSymbolNewSurname + bodyNewSurname;
-
-const result = oldName !== newName ? Output() : oldSurname !== newSurname ? Output() : console.log("Имя осталось без изменений");
-
-function Output() {
-    console.log(`Имя ${oldName} ${oldSurname} было преобразовано на ${newName} ${newSurname}`);
-}
+const result =
+  oldName !== firstSymbolNewName+bodyNewName
+    ? console.log(`Имя было преобразовано`)
+    : oldSurname !== firstSymbolNewSurname+bodyNewSurname
+    ? console.log(`Имя было преобразовано`)
+    : console.log("Имя осталось без изменений");
