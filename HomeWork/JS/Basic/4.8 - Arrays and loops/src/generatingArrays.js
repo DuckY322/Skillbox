@@ -8,7 +8,7 @@ let max = Math.max(n, m);
 let maxmin = max - min;
 
 
-for (let i = 0; i < count; i++) {
+while (arr.length < count) {
   arr.push(Math.round(Math.random() * maxmin + min));
 }
 
