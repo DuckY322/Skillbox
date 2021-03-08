@@ -7,5 +7,4 @@ let y2 = 1;
 let aSide = x1 - x2;
 let bSide = y1 - y2;
 
-console.log("\nПлощадь прямоугольника = " + Math.abs(aSide * bSide));
-console.log("_______________________________________________________\n");
+console.log("Площадь прямоугольника = " + Math.abs(aSide * bSide));
