@@ -1,7 +1,7 @@
-function convert(arr) {
+function convert(arrConvert) {
   let readyArr = [];
 
-  for (let item of arr) {
+  for (let item of arrConvert) {
     if (typeof item === "object") {
       if (item.value && item.label) {
         readyArr.push(item);
@@ -9,6 +9,12 @@ function convert(arr) {
         readyArr.push({ value: item.label, label: item.label });
       } else if (item.value && !item.label) {
         readyArr.push({ value: item.value, label: item.value });
+      } else {
+        let entries = Object.entries(item);
+
+        for (let [key, value] of entries) {
+          readyArr.push({ value: key, label: value });
+        }
       }
     } else {
       readyArr.push({ value: item, label: item });
@@ -59,6 +65,9 @@ console.log(
       { value: `Новосибирск`, label: `Новосибирск` },
       { value: `Иркутск`, label: `Иркутск` },
       { value: `Казань`, label: `Казань` },
+      { value1: `value11`, label1: `label11` },
+      1,
+      `Ура`,
     ],
     `Новосибирск`
   )
