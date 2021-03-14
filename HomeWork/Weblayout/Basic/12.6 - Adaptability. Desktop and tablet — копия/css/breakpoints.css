@@ -1,0 +1,174 @@
+@media (min-width: 250px) and (max-width: 320px) {
+}
+
+@media (min-width: 321px) and (max-width: 576px) {
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+}
+
+@media (min-width: 993px) and (max-width: 1024px) {
+  :root {
+    --margin-container: 58px;
+  }
+  .container-main {
+    max-width: 1024px;
+  }
+
+  .container {
+    max-width: 948px;
+  }
+
+  /* Header */
+
+  .header__container {
+    padding: 26px 23px 26px 12px;
+  }
+  .header__list {
+    display: none;
+  }
+  .header__button_burger {
+    display: block;
+    width: 30px;
+    height: 23px;
+  }
+
+  /* section-design-solutions */
+
+  .section-design-solutions__container {
+    height: 768px;
+    background-image: url("../img/design-solutions/design-solutions-1-1024.jpg");
+  }
+  .section-design-solutions__info {
+    position: absolute;
+    top: 260px;
+    left: 45px;
+  }
+  .section-design-solutions__title {
+    margin-bottom: 18px;
+    font-size: 60px;
+    line-height: 122%;
+  }
+  .section-design-solutions__sub-title {
+    margin-bottom: 110px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  .section-design-solutions__button {
+    padding: 25.5px 38.5px;
+    margin: 0;
+  }
+
+  /* section-about-us__container */
+
+  .section-about-us__title {
+    margin-bottom: 36px;
+  }
+  .section-about-us__sub-title {
+    padding: 0;
+    margin-bottom: 47px;
+  }
+  .section-about-us__cards {
+    flex-direction: column;
+  }
+  .section-about-us__example {
+    margin-bottom: 50px;
+    width: 100%;
+    height: 640px;
+    max-width: 924px;
+  }
+  .section-about-us__example-more {
+    padding: 43px 50px 40px 44px;
+    width: 100%;
+  }
+  .section-about-us__example-text {
+    width: 497px;
+  }
+  .section-about-us__example-button {
+    padding: 17.5px 35.25px;
+  }
+  .section-about-us__double-cards {
+    width: 100%;
+    height: 630px;
+    max-width: 924px;
+  }
+  .section-about-us__card {
+    justify-content: flex-start;
+    padding-left: 112px;
+    width: 100%;
+    height: 50%;
+    max-height: 295px;
+    border: solid 1px var(--color-CA);
+  }
+
+  /* section-how-we-work */
+
+  .section-how-we-work__container {
+    margin-bottom: 53px;
+  }
+  .section-how-we-work__title {
+    margin-bottom: 38px;
+  }
+  .section-how-we-work__steps {
+    margin-bottom: 49px;
+  }
+  .section-how-we-work__step:not(:last-child) {
+    margin-right: 85px;
+  }
+  .section-how-we-work__description {
+    height: 689px;
+  }
+  .section-how-we-work__content {
+    max-width: 437px;
+  }
+  .section-how-we-work__photo {
+    padding: 0;
+    width: 50%;
+    height: 100%;
+    max-width: 437px;
+  }
+
+  /* section-questions */
+
+  .section-questions__title {
+    margin-bottom: 27px;
+  }
+  .section-questions__button {
+    font-size: 20px;
+    line-height: 160%;
+  }
+  .section-questions__button-slash {
+    font-size: 20px;
+    line-height: 160%;
+    color: var(--color-CA);
+  }
+
+  /* footer */
+  .footer__container {
+    padding: 47px 12px 80px 12px;
+  }
+  .footer__left {
+    width: 35%;
+  }
+  .footer__center {
+    width: 65%;
+    max-width: 543px;
+  }
+  .footer__title {
+    padding: 0;
+    margin-bottom: 31px;
+  }
+  .footer__input {
+    padding: 13px 24px;
+  }
+  .footer__button {
+    padding: 20px 38.15px;
+  }
+  .footer__right {
+    display: none;
+  }
+}
