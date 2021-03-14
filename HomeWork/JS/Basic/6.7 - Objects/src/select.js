@@ -5,6 +5,10 @@ function convert(arr) {
     if (typeof item === "object") {
       if (item.value && item.label) {
         readyArr.push(item);
+      } else if (!item.value && item.label) {
+        readyArr.push({ value: item.label, label: item.label });
+      } else if (item.value && !item.label) {
+        readyArr.push({ value: item.value, label: item.value });
       }
     } else {
       readyArr.push({ value: item, label: item });
@@ -22,6 +26,7 @@ function createSelect(arrOpt, valueOpt) {
   for (let obj of readyArr) {
     let option = document.createElement(`option`);
     let entries = Object.entries(obj);
+
     for (let [key, value] of entries) {
       if (key === `value`) {
         option.value = value;
@@ -32,9 +37,11 @@ function createSelect(arrOpt, valueOpt) {
         continue;
       }
     }
+
     if (option.value === valueOpt) {
       option.selected = true;
     }
+
     select.append(option);
   }
 
