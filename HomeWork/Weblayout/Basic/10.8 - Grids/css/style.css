@@ -274,7 +274,7 @@ html {
 
 /*Section specials*/
 
-.section-specials__col {
+.section-specials_col {
     display: flex;
     margin-bottom: var(--margin-blocks);
 }
@@ -305,7 +305,7 @@ html {
     background-image: url("../img/example/down-small-example.jpg");
 }
 
-.section-special__example_right {
+.section-special__right-example {
     position: relative;
     flex-direction: column;
     width: 100%;
@@ -389,7 +389,7 @@ html {
 
 /*Section services*/
 
-.section-services__col {
+.section-services_col {
     display: flex;
 }
 
@@ -421,7 +421,7 @@ html {
     margin: 0 0 30px 0;
 }
 
-.section-advantages__col {
+.section-advantages_col {
     display: flex;
 }
 
@@ -479,7 +479,7 @@ html {
     margin: 0 0 30px 0;
 }
 
-.section-placements__col {
+.section-placements_col {
     display: flex;
 }
 
@@ -594,7 +594,7 @@ html {
     background-color: var(--font-color-white);
 }
 
-.section-tour__col {
+.section-tour_col {
     display: flex;
     padding: 0;
 }
@@ -648,7 +648,7 @@ html {
     background-color: var(--font-color-white);
 }
 
-.section-contacts__col {
+.section-contacts_col {
     display: flex;
     flex-direction: column;
     padding: 0;

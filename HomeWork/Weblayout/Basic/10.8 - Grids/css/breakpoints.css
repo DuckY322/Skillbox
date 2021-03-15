@@ -99,7 +99,7 @@
     .section-contacts__container {
         padding: 36px 24px;
     }
-    .section-contacts__col {
+    .section-contacts_col {
         display: flex;
         flex-direction: column;
         padding: 0;
@@ -213,7 +213,7 @@
         padding: 36px 28px;
     }
     .section-placements__rating {
-        margin: 0 auto 0 auto;
+        margin: 0 auto 0 45px;
     }
     .section-placements__link {
         margin: 0 0 15% 10%;
@@ -229,7 +229,7 @@
     .section-contacts__container {
         padding: 36px 24px;
     }
-    .section-contacts__col {
+    .section-contacts_col {
         display: flex;
         flex-direction: column;
         padding: 0;
@@ -368,7 +368,7 @@
         border: none;
     }
     /* Section contacts */
-    .section-contacts__col {
+    .section-contacts_col {
         display: flex;
         flex-direction: column;
         padding: 0;
