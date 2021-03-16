@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"),
-    url("../fonts/Montserrat-Regular.woff") format("woff");
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
@@ -9,8 +8,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2"),
-    url("../fonts/Montserrat-SemiBold.woff") format("woff");
+  src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2"), url("../fonts/Montserrat-SemiBold.woff") format("woff");
   font-display: swap;
   font-weight: 600;
   font-style: normal;
@@ -18,8 +16,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"),
-    url("../fonts/Montserrat-Bold.woff") format("woff");
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
   font-display: swap;
   font-weight: 700;
   font-style: normal;
@@ -27,8 +24,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat-ExtraBold.woff2") format("woff2"),
-    url("../fonts/Montserrat-ExtraBold.woff") format("woff");
+  src: url("../fonts/Montserrat-ExtraBold.woff2") format("woff2"), url("../fonts/Montserrat-ExtraBold.woff") format("woff");
   font-display: swap;
   font-weight: 800;
   font-style: normal;
@@ -46,12 +42,7 @@
   color: var(--color-3);
 }
 
-*:active,
-*:hover,
-*:focus,
-*:active,
-*:hover,
-*:focus {
+*:active, *:hover, *:focus, *:active, *:hover, *:focus {
   outline: 0;
   outline-offset: 0;
 }
@@ -80,8 +71,7 @@ img {
   object-fit: cover;
 }
 
-textarea,
-input {
+textarea, input {
   padding: 0 24px;
   border: none;
   font-size: 16px;
@@ -99,8 +89,7 @@ button {
   cursor: pointer;
 }
 
-textarea::-webkit-input-placeholder,
-input::-webkit-input-placeholder {
+textarea::-webkit-input-placeholder, input::-webkit-input-placeholder {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -189,12 +178,10 @@ html {
   background-color: var(--color-dark-orange);
 }
 
-.icon-i::before {
-  content: "";
+.icon-i {
   display: inline-block;
   height: 16px;
   width: 16px;
-  text-align: center;
   transform: translateY(3px);
   background-image: url("../img/icon-i.svg");
 }
@@ -206,7 +193,7 @@ html {
 }
 
 .header__container {
-  padding: 14px 23px 14px 12px;
+  padding: 7px 23px 7px 12px;
   margin-bottom: 0;
 }
 
@@ -216,8 +203,18 @@ html {
   background-image: url("../img/logo.png");
 }
 
+.header__nav {
+  max-width: 80%;
+}
+
 .header__list {
+  flex-wrap: wrap;
+  justify-content: flex-start;
   margin-right: 71px;
+}
+
+.header__item {
+  margin: 7px 0;
 }
 
 .header__item:after {
@@ -232,9 +229,7 @@ html {
   transition-timing-function: var(--anim-timing-function);
 }
 
-.header__item:hover:after,
-.header__item:focus:after,
-.header__item:active:after {
+.header__item:hover:after, .header__item:focus:after, .header__item:active:after {
   width: 100%;
 }
 
@@ -250,9 +245,13 @@ html {
   font-size: 18px;
   font-weight: 600;
 }
+
 .header__button_burger {
   display: none;
+  width: 30px;
+  height: 23px;
 }
+
 .header__button {
   padding: 0;
   width: 23px;
@@ -261,8 +260,7 @@ html {
   background-color: transparent;
 }
 
-.header__button svg rect,
-.header__button svg circle {
+.header__button svg rect, .header__button svg circle {
   transition-property: fill, stroke;
   transition-duration: var(--anim-time);
   transition-timing-function: var(--anim-timing-function);
@@ -288,6 +286,7 @@ html {
 
 .section-design-solutions__container {
   padding: 103px 862px 91px 90px;
+  max-width: calc(1794px - 24px);
   background-image: url("../img/design-solutions/design-solutions-1.jpg");
 }
 
@@ -334,12 +333,18 @@ html {
   line-height: 200%;
 }
 
+.section-about-us__cards {
+  display: flex;
+}
+
 .section-about-us__example {
+  display: flex;
   align-items: flex-end;
-  width: 50%;
-  height: 620px;
-  max-width: 870px;
+  margin-right: 30px;
+  width: 49.5%;
+  background-size: cover;
   background-image: url("../img/about-us/about-us-1.jpg");
+  background-position: center;
 }
 
 .section-about-us__example-more {
@@ -372,25 +377,27 @@ html {
 
 .section-about-us__double-cards {
   align-items: flex-start;
+  justify-content: flex-start;
   flex-direction: column;
-  width: 50%;
-  height: 620px;
-  max-width: 870px;
+  width: 49.5%;
 }
 
 .section-about-us__card {
   justify-content: flex-start;
-  padding-left: 63px;
+  padding: 67px 0 68px 63px;
   width: 100%;
-  height: 50%;
-  max-height: 295px;
   border: solid 1px var(--color-CA);
+}
+
+.section-about-us__card:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 .section-about-us__card-image_top {
   margin-right: 59px;
   width: 178px;
   height: 137px;
+  background-size: contain;
   background-image: url("../img/about-us/cube.svg");
 }
 
@@ -398,19 +405,20 @@ html {
   margin-right: 59px;
   width: 178px;
   height: 153px;
+  background-size: contain;
   background-image: url("../img/about-us/gear.svg");
-}
-
-.section-about-us__card-text {
-  width: 452px;
-  font-size: 16px;
-  line-height: 200%;
 }
 
 .section-about-us__card-text_title {
   width: 100%;
   font-size: 24px;
   font-weight: 700;
+}
+
+.section-about-us__card-text {
+  width: 452px;
+  font-size: 16px;
+  line-height: 200%;
 }
 
 /* section-how-we-work */
@@ -420,7 +428,7 @@ html {
 }
 
 .section-how-we-work__steps {
-  justify-content: flex-start;
+  padding-right: 73%;
   margin-bottom: 45px;
 }
 
@@ -440,24 +448,23 @@ html {
   color: var(--color-dark-orange);
 }
 
-.section-how-we-work__step:not(:last-child) {
-  margin-right: 89px;
-}
-
 .section-how-we-work__step_active {
   color: var(--color-orange);
 }
 
 .section-how-we-work__description {
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-how-we-work__info {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 42.825%;
 }
 
 .section-how-we-work__content {
-  flex-direction: column;
-  align-items: flex-start;
-  width: 50%;
-  height: 465px;
-  max-width: 758px;
+  margin-bottom: 50px;
 }
 
 .section-how-we-work__text-title {
@@ -470,6 +477,10 @@ html {
 .section-how-we-work__text-info {
   font-size: 16px;
   line-height: 200%;
+}
+
+.section-how-we-work__buttons {
+  justify-content: flex-start;
 }
 
 .section-how-we-work__more {
@@ -489,8 +500,7 @@ html {
   transition-timing-function: var(--anim-timing-function);
 }
 
-.section-how-we-work__contract:hover,
-.section-how-we-work__contract:active {
+.section-how-we-work__contract:hover, .section-how-we-work__contract:active {
   color: var(--color-F);
   background-color: var(--color-6);
 }
@@ -500,10 +510,7 @@ html {
 }
 
 .section-how-we-work__photo {
-  width: 50%;
-  height: 465px;
-  max-width: 870px;
-  background-image: url("../img/how-we-work/how-we-work-1.jpg");
+  width: 49.154%;
 }
 
 /* section-questions */
@@ -536,7 +543,8 @@ html {
   border-bottom: solid 1px var(--color-orange);
 }
 
-.section-questions__item:hover .section-questions__button {
+.section-questions__item:hover .section-questions__button,
+.section-questions__item:hover .section-questions__button-slash {
   color: var(--color-orange);
 }
 
@@ -549,7 +557,8 @@ html {
   border-bottom: solid 1px var(--color-dark-orange);
 }
 
-.section-questions__item:active .section-questions__button {
+.section-questions__item:active .section-questions__button,
+.section-questions__item:active .section-questions__button-slash {
   color: var(--color-dark-orange);
 }
 
@@ -563,7 +572,7 @@ html {
 
 .section-questions__button {
   position: relative;
-  padding: 30px 150px 30px 0;
+  padding: 30px 125px 30px 0;
   width: 100%;
   height: 100%;
   border: none;
@@ -581,6 +590,7 @@ html {
   font-weight: 700;
   line-height: 133%;
   color: var(--color-CA);
+  transition: color var(--anim-time) var(--anim-timing-function);
 }
 
 .section-questions__plus {
@@ -606,31 +616,28 @@ html {
 /* footer */
 
 .footer {
-  height: 630px;
   background-color: var(--color-2);
 }
 
 .footer__container {
   padding: 48px 12px 80px 12px;
-  height: 100%;
   margin-bottom: 0;
 }
 
 .footer__left {
   flex-direction: column;
   align-items: flex-start;
-  width: 33.33%;
-  height: 100%;
-  max-width: 317px;
+  width: 17.91%;
 }
 
 .footer__logo-list {
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 118px;
 }
 
 .footer__logo {
-  margin-bottom: 12px;
+  margin-bottom: 19px;
   width: 224px;
   height: 72px;
   background-image: url("../img/logo-footer.png");
@@ -658,8 +665,7 @@ html {
   background-image: url("../img/social/social-facebook.svg");
 }
 
-.footer__social_facebook:hover,
-.footer__social_facebook:active {
+.footer__social_facebook:hover, .footer__social_facebook:active {
   background-color: #3b5998;
 }
 
@@ -667,8 +673,7 @@ html {
   background-image: url("../img/social/social-vk.svg");
 }
 
-.footer__social_vk:hover,
-.footer__social_vk:active {
+.footer__social_vk:hover, .footer__social_vk:active {
   background-color: #4d7198;
 }
 
@@ -676,20 +681,17 @@ html {
   background-image: url("../img/social/social-instagram.svg");
 }
 
-.footer__social_instagram:hover,
-.footer__social_instagram:active {
+.footer__social_instagram:hover, .footer__social_instagram:active {
   background-color: #f56040;
 }
 
 .footer__center {
-  width: 50%;
-  height: 100%;
-  max-width: 570px;
+  width: 32.205%;
 }
 
 .footer__title {
-  padding-top: 7px;
-  margin-bottom: 21px;
+  padding-top: 15px;
+  margin-bottom: 31px;
   font-size: 48px;
   font-weight: 400;
   line-height: 123%;
@@ -730,12 +732,12 @@ html {
   color: var(--color-CA);
 }
 
-.footer__input_check + label {
+.footer__input_check+label {
   display: flex;
   align-items: center;
 }
 
-.footer__input_check + label::before {
+.footer__input_check+label::before {
   content: "";
   display: inline-block;
   width: 14px;
@@ -744,7 +746,7 @@ html {
   margin-right: 4px;
 }
 
-.footer__input_check:checked + label::before {
+.footer__input_check:checked+label::before {
   border-color: var(--color-CA);
   background-color: transparent;
   background-position: center;
@@ -760,10 +762,7 @@ html {
 }
 
 .footer__right {
-  padding-bottom: 22px;
-  width: 33.33%;
-  height: 100%;
-  max-width: 363px;
+  width: 20.509%;
 }
 
 .footer__right-text {
