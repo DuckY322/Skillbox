@@ -255,7 +255,32 @@
         padding: 26px 23px 26px 12px;
     }
     .header__list {
-        display: none;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        z-index: 2;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        border-radius: 5px;
+        background-color: var(--color-F);
+        box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.1);
+        transform: translateX(-100%);
+        transition: transform var(--anim-time) var(--anim-timing-function);
+    }
+    .header__list_active {
+        transform: translateX(0);
+    }
+    .header__item:not(:last-child) {
+        margin-right: 90px;
+    }
+    .header__item {
+        margin: 30px 90px;
+    }
+    .header__link {
+        font-size: 36px;
+        font-weight: 700;
     }
     .header__button_burger {
         display: block;

@@ -11,3 +11,9 @@ const swiper = new Swiper('.swiper-container', {
         prevEl: '.swiper-button-prev',
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.header__button_burger').addEventListener('click', function() {
+        document.querySelector('.header__list').classList.toggle('header__list_active');
+    })
+})
