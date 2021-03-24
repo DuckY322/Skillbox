@@ -13,19 +13,36 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    let openQuestion;
+
     document.querySelector('.header__button_burger').addEventListener('click', function() {
         document.querySelector('.header__list').classList.toggle('header__list_active');
     })
 
-    document.querySelectorAll('.section-questions__button').forEach(el => {
+    document.querySelectorAll('.section-questions__item').forEach(el => {
         el.addEventListener('click', function() {
-            this.classList.toggle('section-questions__button_active');
-            let answer = this.nextElementSibling;
-            if (answer.style.maxHeight) {
-                answer.style.maxHeight = null;
+            let question = this.querySelector('.section-questions__button');
+
+            document.querySelectorAll('.section-questions__button').forEach(item => {
+                item.classList.remove('section-questions__button_active');
+                item.nextElementSibling.style.maxHeight = null;
+            });
+
+            if (this === openQuestion) {
+                question.classList.remove('section-questions__button_active');
+                question.nextElementSibling.style.maxHeight = null;
+                openQuestion = null;
             } else {
-                answer.style.maxHeight = answer.scrollHeight + 'px';
+                openQuestion = this;
+                question.classList.add('section-questions__button_active');
+                let answer = question.nextElementSibling;
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
             }
         });
     });
-})
+});

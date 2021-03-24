@@ -631,21 +631,16 @@ html {
 }
 
 .section-questions__answer {
-    color: #212121;
-    background-color: #fff;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height var(--anim-time) var(--anim-timing-function);
 }
 
 .section-questions__answer-text {
     flex-direction: column;
     padding: 0 150px 50px 0;
+    font-size: 18px;
     line-height: 200%;
-}
-
-.section-questions__button_active .section-questions__plus {
-    transform: rotate(45deg);
 }
 
 .section-questions__answer-text_split {
@@ -729,6 +724,10 @@ html {
 
 .section-questions__item .section-questions__plus svg path {
     transition: fill var(--anim-time) var(--anim-timing-function);
+}
+
+.section-questions__button_active .section-questions__plus {
+    transform: rotate(45deg);
 }
 
 
