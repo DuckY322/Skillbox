@@ -617,6 +617,28 @@ html {
     transition: border var(--anim-time) var(--anim-timing-function);
 }
 
+.section-questions__answer {
+    color: #212121;
+    background-color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.section-questions__answer-text {
+    flex-direction: column;
+    padding: 0 150px 50px 0;
+    line-height: 200%;
+}
+
+.section-questions__button_active .section-questions__plus {
+    transform: rotate(45deg);
+}
+
+.section-questions__answer-text_split {
+    height: 40px;
+}
+
 .section-questions__item:first-child {
     border-top: solid 1px var(--color-CA);
 }
@@ -687,7 +709,7 @@ html {
     border-radius: 50%;
     background-size: 65%;
     background-color: var(--color-EC);
-    transition-property: padding, background-color;
+    transition-property: padding, background-color, transform;
     transition-duration: var(--anim-time);
     transition-timing-function: var(--anim-timing-function);
 }

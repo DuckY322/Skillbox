@@ -16,4 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.header__button_burger').addEventListener('click', function() {
         document.querySelector('.header__list').classList.toggle('header__list_active');
     })
+
+    document.querySelectorAll('.section-questions__button').forEach(el => {
+        el.addEventListener('click', function() {
+            this.classList.toggle('section-questions__button_active');
+            var answer = this.nextElementSibling;
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
 })
