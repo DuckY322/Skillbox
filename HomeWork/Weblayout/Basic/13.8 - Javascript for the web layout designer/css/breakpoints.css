@@ -14,9 +14,11 @@
     }
     /* section-design-solutions */
     .section-design-solutions__container {
-        padding: 75px 25% 75px 75px;
+        height: 565px;
         max-width: calc(100% - 76px - 24px);
-        background-image: url("../img/design-solutions/design-solutions-1-1024.jpg");
+    }
+    .section-design-solutions__info {
+        padding: 75px 25% 75px 75px;
     }
     .section-design-solutions__title {
         margin-bottom: 45px;
@@ -129,9 +131,11 @@
     }
     /* section-design-solutions */
     .section-design-solutions__container {
-        padding: 160px 42px 114px 45px;
+        height: 675px;
         max-width: calc(100% - 76px - 24px);
-        background-image: url("../img/design-solutions/design-solutions-1-1024.jpg");
+    }
+    .section-design-solutions__info {
+        padding: 160px 42px 114px 45px;
     }
     .section-design-solutions__title {
         margin-bottom: 18px;
@@ -250,6 +254,10 @@
     .container {
         max-width: calc(100% - 76px);
     }
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
     /* Header */
     .header__container {
         padding: 26px 23px 26px 12px;
@@ -289,9 +297,11 @@
     }
     /* section-design-solutions */
     .section-design-solutions__container {
-        padding: 160px 42px 114px 45px;
+        height: 675px;
         max-width: calc(100% - 76px - 24px);
-        background-image: url("../img/design-solutions/design-solutions-1-1024.jpg");
+    }
+    .section-design-solutions__info {
+        padding: 160px 42px 114px 45px;
     }
     .section-design-solutions__title {
         margin-bottom: 18px;
@@ -403,6 +413,11 @@
     .container {
         max-width: calc(100% - 76px);
     }
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+    /* Header */
     .header__container {
         padding: 10px 12px 10px 12px;
     }
@@ -416,9 +431,11 @@
     }
     /* section-design-solutions */
     .section-design-solutions__container {
-        padding: 191px 49px 114px 49px;
+        height: 705px;
         max-width: 100%;
-        background-image: url("../img/design-solutions/design-solutions-1-768.jpg");
+    }
+    .section-design-solutions__info {
+        padding: 191px 49px 114px 49px;
     }
     .section-design-solutions__title {
         margin-bottom: 18px;
@@ -559,6 +576,11 @@
     .container {
         max-width: calc(100% - 76px);
     }
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+    /* Header */
     .header__container {
         padding: 10px 12px 10px 12px;
     }
@@ -572,9 +594,11 @@
     }
     /* section-design-solutions */
     .section-design-solutions__container {
-        padding: 191px 0 114px 49px;
+        height: 705px;
         max-width: 100%;
-        background-image: url("../img/design-solutions/design-solutions-1-768.jpg");
+    }
+    .section-design-solutions__info {
+        padding: 191px 0 114px 49px;
     }
     .section-design-solutions__title {
         margin-bottom: 18px;
@@ -715,6 +739,11 @@
     .section-title {
         font-size: 28px;
     }
+    .swiper-button-next,
+    .swiper-button-prev,
+    .swiper-pagination-bullet {
+        display: none;
+    }
     /* Header */
     .header__container {
         flex-direction: row-reverse;
@@ -740,9 +769,11 @@
     }
     /* section-design-solutions */
     .section-design-solutions__container {
-        padding: 32px 21px 40px 22px;
+        height: 320px;
         max-width: calc(100% - 26px - 24px);
-        background-image: url("../img/design-solutions/design-solutions-1-320.jpg");
+    }
+    .section-design-solutions__info {
+        padding: 32px 21px 40px 22px;
     }
     .section-design-solutions__info {
         align-items: center;
@@ -986,6 +1017,11 @@
     .section-title {
         font-size: 20px;
     }
+    .swiper-button-next,
+    .swiper-button-prev,
+    .swiper-pagination-bullet {
+        display: none;
+    }
     /* Header */
     .header__container {
         flex-direction: row-reverse;
@@ -1011,9 +1047,11 @@
     }
     /* section-design-solutions */
     .section-design-solutions__container {
-        padding: 32px 21px 40px 22px;
+        height: 256px;
         max-width: calc(100% - 6px - 24px);
-        background-image: url("../img/design-solutions/design-solutions-1-320.jpg");
+    }
+    .section-design-solutions__info {
+        padding: 32px 21px 40px 22px;
     }
     .section-design-solutions__info {
         align-items: center;

@@ -199,8 +199,21 @@ html {
     height: 100%;
 }
 
+.swiper-pagination-bullet {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: border 0.025s var(--anim-timing-function);
+}
+
+.swiper-pagination-bullet:hover {
+    border: 2px solid var(--color-orange);
+}
+
 .swiper-pagination-bullet-active {
-    background-color: var(--color-orange);
+    background-color: var(--color-F);
 }
 
 .swiper-button-next,
@@ -339,6 +352,7 @@ html {
 .section-design-solutions__container {
     position: relative;
     padding: 0;
+    height: 620px;
     max-width: calc(1794px - 24px);
 }
 
@@ -516,7 +530,6 @@ html {
 .section-how-we-work__step {
     border: none;
     font-size: 18px;
-    line-height: 122%;
     background-color: transparent;
     transition: color var(--anim-time) var(--anim-timing-function);
 }

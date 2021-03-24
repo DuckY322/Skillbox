@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.section-questions__button').forEach(el => {
         el.addEventListener('click', function() {
             this.classList.toggle('section-questions__button_active');
-            var answer = this.nextElementSibling;
+            let answer = this.nextElementSibling;
             if (answer.style.maxHeight) {
                 answer.style.maxHeight = null;
             } else {
