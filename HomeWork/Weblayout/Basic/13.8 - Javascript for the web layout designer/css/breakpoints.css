@@ -437,6 +437,26 @@
     .swiper-button-prev {
         display: none;
     }
+    /* Zero-block */
+    .zero-block__title {
+        top: calc(30% - 30px);
+        left: calc(50% - 280px);
+        font-size: 70px;
+    }
+    .zero-block__subTitle {
+        top: calc(30% + 28px);
+        right: calc(50% - 400px);
+        font-size: 35px;
+    }
+    .zero-block__building-images {
+        margin-bottom: 20px;
+        width: 90%;
+        height: 50px;
+    }
+    .zero-block__building-image {
+        width: 50px;
+        height: 100%;
+    }
     /* Header */
     .header__container {
         padding: 10px 12px 10px 12px;
@@ -631,6 +651,26 @@
     .swiper-button-next,
     .swiper-button-prev {
         display: none;
+    }
+    /* Zero-block */
+    .zero-block__title {
+        top: calc(30% - 30px);
+        left: calc(50% - 240px);
+        font-size: 60px;
+    }
+    .zero-block__subTitle {
+        top: calc(30% + 28px);
+        right: calc(50% - 340px);
+        font-size: 30px;
+    }
+    .zero-block__building-images {
+        margin-bottom: 20px;
+        width: 90%;
+        height: 50px;
+    }
+    .zero-block__building-image {
+        width: 50px;
+        height: 100%;
     }
     /* Header */
     .header__container {
@@ -830,6 +870,26 @@
     .swiper-button-prev,
     .swiper-pagination-bullet {
         display: none;
+    }
+    /* Zero-block */
+    .zero-block__title {
+        top: calc(30% - 30px);
+        left: calc(50% - 200px);
+        font-size: 50px;
+    }
+    .zero-block__subTitle {
+        top: calc(30% + 17px);
+        right: calc(50% - 227px);
+        font-size: 25px;
+    }
+    .zero-block__building-images {
+        margin-bottom: 20px;
+        width: 90%;
+        height: 50px;
+    }
+    .zero-block__building-image {
+        width: 50px;
+        height: 100%;
     }
     /* Header */
     .header__container {
@@ -1141,6 +1201,26 @@
     .swiper-button-prev,
     .swiper-pagination-bullet {
         display: none;
+    }
+    /* Zero-block */
+    .zero-block__title {
+        top: calc(25% - 30px);
+        left: calc(40% - 125px);
+        font-size: 50px;
+    }
+    .zero-block__subTitle {
+        top: calc(25% + 17px);
+        right: calc(60% - 180px);
+        font-size: 20px;
+    }
+    .zero-block__building-images {
+        margin-bottom: 20px;
+        width: 90%;
+        height: 50px;
+    }
+    .zero-block__building-image {
+        width: 50px;
+        height: 100%;
     }
     /* Header */
     .header__container {

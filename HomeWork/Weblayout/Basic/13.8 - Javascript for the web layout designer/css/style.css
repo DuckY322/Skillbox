@@ -252,6 +252,7 @@ html {
     position: relative;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 .zero-block__video {
@@ -304,33 +305,27 @@ html {
     width: 75px;
     height: 100%;
     object-fit: contain;
-    /* animation-name: anim-buolding-image; */
     animation-duration: 3s;
     animation-timing-function: var(--anim-timing-function);
 }
 
 .zero-block__building-image-1 {
-    /* animation-delay: 1.5s; */
     animation-name: anim-buolding-image-1;
 }
 
 .zero-block__building-image-2 {
-    /* animation-delay: 2s; */
     animation-name: anim-buolding-image-2;
 }
 
 .zero-block__building-image-3 {
-    /* animation-delay: 2.5s; */
     animation-name: anim-buolding-image-3;
 }
 
 .zero-block__building-image-4 {
-    /* animation-delay: 3s; */
     animation-name: anim-buolding-image-4;
 }
 
 .zero-block__building-image-5 {
-    /* animation-delay: 3.5s; */
     animation-name: anim-buolding-image-5;
 }
 
