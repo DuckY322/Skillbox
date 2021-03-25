@@ -113,7 +113,7 @@ html {
     font-family: "Montserrat", sans-serif;
 }
 
-:root {
+ :root {
     --color-F: #fff;
     --color-0: #000;
     --color-2: #222;
@@ -128,7 +128,7 @@ html {
     --color-orange: #ff9900;
     --color-dark-orange: #e1670e;
     --margin-container: 100px;
-    --anim-time: 0.3s;
+    --anim-time: 0.25s;
     --anim-timing-function: ease-in-out;
 }
 
@@ -232,6 +232,11 @@ html {
     color: var(--color-dark-orange);
 }
 
+.burger-menu-noScroll {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
 
 /* Header */
 
@@ -295,12 +300,6 @@ html {
     font-weight: 600;
 }
 
-.header__button_burger {
-    display: none;
-    width: 30px;
-    height: 23px;
-}
-
 .header__button {
     padding: 0;
     width: 23px;
@@ -332,18 +331,73 @@ html {
     stroke: var(--color-dark-orange);
 }
 
-.header__button_burger svg rect {
-    transition-property: fill, width;
-    transition-duration: var(--anim-time);
-    transition-timing-function: var(--anim-timing-function);
+.header__button_burger {
+    display: none;
+    position: relative;
+    width: 30px;
+    height: 23px;
+    cursor: pointer;
 }
 
-.header__button_burger:hover svg rect:nth-child(2) {
-    width: 75%;
+.header__button_burger_active {
+    display: flex;
 }
 
-.header__button_burger:hover svg rect:nth-child(3) {
-    width: 50%;
+.burger-line {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: var(--color-3);
+    border-radius: 4px;
+    transition-duration: .25s;
+    transition-delay: .25s;
+}
+
+.burger-line::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: var(--color-3);
+    transition-duration: .25s;
+    transition: transform .25s, top .25s .25s;
+}
+
+.burger-line:after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: var(--color-3);
+    transition-duration: .25s;
+    transition: transform .25s, top .25s .25s;
+}
+
+.header__button_burger_active .burger-line {
+    transition-duration: 0.1s;
+    transition-delay: .25s;
+    background: transparent;
+}
+
+.header__button_burger_active .burger-line::before {
+    transition: top .25s, transform .25s .25s, background-color .25s .25s;
+    top: 0px;
+    transform: rotateZ(-45deg);
+    background-color: var(--color-orange);
+}
+
+.header__button_burger_active .burger-line:after {
+    transition: top 0.4s, transform .25s .25s, background-color .25s .25s;
+    top: 0px;
+    transform: rotateZ(45deg);
+    background-color: var(--color-orange);
 }
 
 

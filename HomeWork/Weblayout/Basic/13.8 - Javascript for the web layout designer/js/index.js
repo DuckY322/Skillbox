@@ -16,9 +16,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let openQuestion;
 
-    document.querySelector('.header__button_burger').addEventListener('click', function() {
+    function viewHideMenu() {
         document.querySelector('.header__list').classList.toggle('header__list_active');
+        document.body.classList.toggle('burger-menu-noScroll');
+        document.querySelector('.header__button_burger').classList.toggle('header__button_burger_active');
+    }
+
+    document.querySelector('.header__button_burger').addEventListener('click', function() {
+        viewHideMenu();
     })
+
+    document.querySelectorAll('.header__link').forEach(el => {
+        el.addEventListener('click', function(e) {
+            if (document.body.classList.contains('burger-menu-noScroll')) {
+                viewHideMenu();
+            }
+            e.preventDefault();
+            let scrollto = this.getAttribute('scrollto');
+            const scrollTarget = document.querySelector(scrollto);
+            const topOffset = 50;
+            const elementPosition = scrollTarget.getBoundingClientRect().top;
+            const offsetPosition = elementPosition - topOffset;
+            window.scrollBy({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
 
     document.querySelectorAll('.section-questions__item').forEach(el => {
         el.addEventListener('click', function() {
