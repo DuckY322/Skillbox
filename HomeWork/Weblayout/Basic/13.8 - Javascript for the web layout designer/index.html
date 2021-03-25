@@ -11,12 +11,29 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/breakpoints.css">
+    <link rel="stylesheet" href="css/anims.css">
 
     <script defer src="node_modules/swiper/swiper-bundle.min.js"></script>
     <script defer type="module" src="js/index.js"></script>
 </head>
 
 <body>
+    <div class="zero-block">
+        <video class="zero-block__video" loop autoplay muted>
+            <source src="img/zero-block/zero-block-background.mp4" type="video/mp4">
+        </video>
+        <div class="flex-row zero-block__info">
+            <span class="zero-block__title">Евклид</span>
+            <span class="zero-block__subTitle">Проектные решения</span>
+            <div class="flex-row zero-block__building-images">
+                <img class="zero-block__building-image zero-block__building-image-1" src="img/zero-block/building-1.svg" alt="building-1">
+                <img class="zero-block__building-image zero-block__building-image-2" src="img/zero-block/building-2.svg" alt="building-2">
+                <img class="zero-block__building-image zero-block__building-image-3" src="img/zero-block/building-3.svg" alt="building-3">
+                <img class="zero-block__building-image zero-block__building-image-4" src="img/zero-block/building-4.svg" alt="building-4">
+                <img class="zero-block__building-image zero-block__building-image-5" src="img/zero-block/building-5.svg" alt="building-5">
+            </div>
+        </div>
+    </div>
     <div class="container-main">
         <header class="header">
             <div class="container flex-row header__container">

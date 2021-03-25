@@ -1,0 +1,72 @@
+@keyframes anim-title {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-subTitle {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-buolding-image-1 {
+    0% {
+        transform: translatey(100vw);
+    }
+    60% {
+        transform: none;
+    }
+}
+
+@keyframes anim-buolding-image-2 {
+    0% {
+        transform: translatey(100vw);
+    }
+    70% {
+        transform: none;
+    }
+}
+
+@keyframes anim-buolding-image-3 {
+    0% {
+        transform: translatey(100vw);
+    }
+    80% {
+        transform: none;
+    }
+}
+
+@keyframes anim-buolding-image-4 {
+    0% {
+        transform: translatey(100vw);
+    }
+    90% {
+        transform: none;
+    }
+}
+
+@keyframes anim-buolding-image-5 {
+    0% {
+        transform: translatey(100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+
+/* @keyframes anim-description {
+    0% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: none;
+    }
+} */

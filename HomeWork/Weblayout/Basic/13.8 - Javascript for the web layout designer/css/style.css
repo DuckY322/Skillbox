@@ -105,7 +105,15 @@ input::-webkit-input-placeholder {
     color: var(--color-CA);
 }
 
+video {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 body {
+    overflow-x: hidden;
     background-color: var(--color-EC);
 }
 
@@ -238,6 +246,118 @@ html {
 }
 
 
+/* Zero-block */
+
+.zero-block {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.zero-block__video {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.zero-block__info {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.zero-block__title {
+    position: absolute;
+    top: calc(25% - 55px);
+    left: calc(40% - 368px);
+    font-size: 92px;
+    font-weight: 700;
+    color: var(--color-orange);
+    animation-name: anim-title;
+    animation-duration: 1.5s;
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.zero-block__subTitle {
+    position: absolute;
+    top: calc(25% - 31px + 62px);
+    right: calc(60% - 590px);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--color-EC);
+    animation-name: anim-subTitle;
+    animation-duration: 1.5s;
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.zero-block__building-images {
+    margin-top: auto;
+    margin-bottom: 50px;
+    width: 80%;
+    height: 75px;
+}
+
+.zero-block__building-image {
+    width: 75px;
+    height: 100%;
+    object-fit: contain;
+    /* animation-name: anim-buolding-image; */
+    animation-duration: 3s;
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.zero-block__building-image-1 {
+    /* animation-delay: 1.5s; */
+    animation-name: anim-buolding-image-1;
+}
+
+.zero-block__building-image-2 {
+    /* animation-delay: 2s; */
+    animation-name: anim-buolding-image-2;
+}
+
+.zero-block__building-image-3 {
+    /* animation-delay: 2.5s; */
+    animation-name: anim-buolding-image-3;
+}
+
+.zero-block__building-image-4 {
+    /* animation-delay: 3s; */
+    animation-name: anim-buolding-image-4;
+}
+
+.zero-block__building-image-5 {
+    /* animation-delay: 3.5s; */
+    animation-name: anim-buolding-image-5;
+}
+
+
+/* .zero-block__description {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 85%;
+    animation-name: anim-description;
+    animation-duration: 1.5s;
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.zero-block__description-title {
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--color-EC);
+}
+
+.zero-block__description-subTitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-EC);
+} */
+
+
 /* Header */
 
 .header {
@@ -247,6 +367,7 @@ html {
 .header__container {
     padding: 7px 23px 7px 12px;
     margin-bottom: 0;
+    height: 100px;
 }
 
 .header__logo {

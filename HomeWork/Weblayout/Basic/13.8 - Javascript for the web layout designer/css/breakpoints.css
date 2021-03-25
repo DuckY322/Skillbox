@@ -310,6 +310,9 @@
         height: 675px;
         max-width: calc(100% - 76px - 24px);
     }
+    .section-design-solutions__image-1 {
+        background-image: url("../img/design-solutions/design-solutions-1-1024.jpg");
+    }
     .section-design-solutions__info {
         padding: 160px 42px 114px 45px;
     }
@@ -670,6 +673,9 @@
     .section-design-solutions__container {
         height: 705px;
         max-width: 100%;
+    }
+    .section-design-solutions__image-1 {
+        background-image: url("../img/design-solutions/design-solutions-1-768.jpg");
     }
     .section-design-solutions__info {
         padding: 191px 0 114px 49px;
@@ -1188,6 +1194,9 @@
     .section-design-solutions__container {
         height: 256px;
         max-width: calc(100% - 6px - 24px);
+    }
+    .section-design-solutions__image-1 {
+        background-image: url("../img/design-solutions/design-solutions-1-320.jpg");
     }
     .section-design-solutions__info {
         padding: 32px 21px 40px 22px;
