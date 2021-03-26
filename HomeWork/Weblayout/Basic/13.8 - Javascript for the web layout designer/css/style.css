@@ -112,6 +112,10 @@ video {
     height: 100%;
 }
 
+main {
+    overflow: hidden;
+}
+
 body {
     overflow-x: hidden;
     background-color: var(--color-EC);
@@ -252,7 +256,7 @@ html {
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .zero-block__video {
@@ -277,9 +281,6 @@ html {
     font-size: 92px;
     font-weight: 700;
     color: var(--color-orange);
-    animation-name: anim-title;
-    animation-duration: 1.5s;
-    animation-timing-function: var(--anim-timing-function);
 }
 
 .zero-block__subTitle {
@@ -289,9 +290,6 @@ html {
     font-size: 52px;
     font-weight: 700;
     color: var(--color-EC);
-    animation-name: anim-subTitle;
-    animation-duration: 1.5s;
-    animation-timing-function: var(--anim-timing-function);
 }
 
 .zero-block__building-images {
@@ -305,52 +303,16 @@ html {
     width: 75px;
     height: 100%;
     object-fit: contain;
-    animation-duration: 3s;
-    animation-timing-function: var(--anim-timing-function);
 }
 
-.zero-block__building-image-1 {
-    animation-name: anim-buolding-image-1;
-}
-
-.zero-block__building-image-2 {
-    animation-name: anim-buolding-image-2;
-}
-
-.zero-block__building-image-3 {
-    animation-name: anim-buolding-image-3;
-}
-
-.zero-block__building-image-4 {
-    animation-name: anim-buolding-image-4;
-}
-
-.zero-block__building-image-5 {
-    animation-name: anim-buolding-image-5;
-}
-
-
-/* .zero-block__description {
+.zero-block__arrow {
     position: absolute;
-    bottom: 10%;
-    left: 5%;
-    width: 85%;
-    animation-name: anim-description;
-    animation-duration: 1.5s;
-    animation-timing-function: var(--anim-timing-function);
+    bottom: calc(25px - 7.5px);
+    left: calc(50% - 7.5px);
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
 }
-
-.zero-block__description-title {
-    font-size: 34px;
-    font-weight: 600;
-    color: var(--color-EC);
-}
-
-.zero-block__description-subTitle {
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--color-EC);
-} */
 
 
 /* Header */
