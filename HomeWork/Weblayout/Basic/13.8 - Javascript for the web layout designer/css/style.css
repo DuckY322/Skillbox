@@ -156,6 +156,7 @@ html {
     padding: 0 12px;
     margin: 0 auto var(--margin-container) auto;
     max-width: 1794px;
+    overflow: hidden;
 }
 
 .section-title {
@@ -244,9 +245,29 @@ html {
     color: var(--color-dark-orange);
 }
 
-.burger-menu-noScroll {
+.body-noScroll {
     height: 100vh;
     overflow-y: hidden;
+}
+
+.off {
+    display: none;
+}
+
+
+/* Load-block */
+
+.load-block {
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.load-block__logo {
+    width: 10%;
+    height: 5%;
+    object-fit: contain;
 }
 
 
@@ -281,6 +302,7 @@ html {
     font-size: 92px;
     font-weight: 700;
     color: var(--color-orange);
+    opacity: 0;
 }
 
 .zero-block__subTitle {
@@ -290,6 +312,7 @@ html {
     font-size: 52px;
     font-weight: 700;
     color: var(--color-EC);
+    opacity: 0;
 }
 
 .zero-block__building-images {
@@ -303,6 +326,7 @@ html {
     width: 75px;
     height: 100%;
     object-fit: contain;
+    opacity: 0;
 }
 
 .zero-block__arrow {
@@ -481,6 +505,10 @@ html {
 
 /* section-design-solutions */
 
+.section-design-solutions {
+    opacity: 0;
+}
+
 .section-design-solutions__container {
     position: relative;
     padding: 0;
@@ -547,6 +575,7 @@ html {
     font-size: 16px;
     font-weight: 400;
     line-height: 200%;
+    opacity: 0;
 }
 
 .section-about-us__cards {
@@ -560,6 +589,7 @@ html {
     justify-content: flex-end;
     margin-right: 30px;
     width: 49.5%;
+    opacity: 0;
 }
 
 .section-about-us__image {
@@ -606,13 +636,18 @@ html {
     justify-content: flex-start;
     flex-direction: column;
     width: 49.5%;
+    overflow: hidden;
+    opacity: 0;
 }
 
 .section-about-us__card {
     justify-content: flex-start;
-    padding: 67px 0 68px 63px;
+    padding: 33px 0 34px 63px;
     width: 100%;
     border: solid 1px var(--color-CA);
+    transition-property: border, background-color;
+    transition-duration: var(--anim-time);
+    transition-timing-function: var(--anim-timing-function);
 }
 
 .section-about-us__card:not(:last-child) {
@@ -623,28 +658,53 @@ html {
     margin-right: 59px;
     width: 178px;
     height: 137px;
-    background-size: contain;
-    background-image: url("../img/about-us/cube.svg");
 }
 
 .section-about-us__card-image_lower {
     margin-right: 59px;
     width: 178px;
     height: 153px;
-    background-size: contain;
-    background-image: url("../img/about-us/gear.svg");
 }
 
 .section-about-us__card-text_title {
     width: 100%;
     font-size: 24px;
     font-weight: 700;
+    transition: color var(--anim-time) var(--anim-timing-function);
 }
 
 .section-about-us__card-text {
     width: 452px;
     font-size: 16px;
     line-height: 200%;
+    transition: color var(--anim-time) var(--anim-timing-function);
+}
+
+.section-about-us__card-image_top circle,
+.section-about-us__card-image_lower circle,
+.section-about-us__card-image_top path,
+.section-about-us__card-image_lower path {
+    transition: fill var(--anim-time) var(--anim-timing-function);
+}
+
+.section-about-us__card:hover {
+    background-color: var(--color-orange);
+    border: 1px solid var(--color-0);
+}
+
+.section-about-us__card:hover .section-about-us__card-text,
+.section-about-us__card:hover .section-about-us__card-text_title {
+    color: var(--color-F);
+}
+
+.section-about-us__card:hover .section-about-us__card-image_top circle,
+.section-about-us__card:hover .section-about-us__card-image_lower circle {
+    fill: var(--color-0)
+}
+
+.section-about-us__card:hover .section-about-us__card-image_top path,
+.section-about-us__card:hover .section-about-us__card-image_lower path {
+    fill: var(--color-F)
 }
 
 
@@ -687,10 +747,18 @@ html {
     flex-direction: column;
     align-items: flex-start;
     width: 42.825%;
+    overflow: hidden;
+    opacity: 0;
 }
 
 .section-how-we-work__content {
+    display: none;
     margin-bottom: 50px;
+}
+
+.section-how-we-work__content_active {
+    display: flex;
+    flex-direction: column;
 }
 
 .section-how-we-work__text-title {
@@ -738,6 +806,7 @@ html {
 
 .section-how-we-work__photo {
     width: 49.154%;
+    opacity: 0;
 }
 
 
@@ -760,6 +829,7 @@ html {
     border-top: solid 1px transparent;
     border-bottom: solid 1px var(--color-CA);
     transition: border var(--anim-time) var(--anim-timing-function);
+    opacity: 0;
 }
 
 .section-questions__answer {
