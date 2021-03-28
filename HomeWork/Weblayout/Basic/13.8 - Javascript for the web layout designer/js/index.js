@@ -12,7 +12,7 @@ const swiper = new Swiper('.swiper-container', {
     },
 
     autoplay: {
-        delay: 3000,
+        delay: 5000,
     },
 });
 
@@ -117,6 +117,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    function scrollToLink(e, el) {
+        if (document.querySelector('.header__list').classList.contains('header__list_active')) {
+            showHideMenu();
+        }
+
+        e.preventDefault();
+        let scrollto = el.getAttribute('href');
+        const scrollTarget = document.querySelector(scrollto);
+        const topOffset = 50;
+        const elementPosition = scrollTarget.getBoundingClientRect().top;
+        const offsetPosition = elementPosition - topOffset;
+        window.scrollBy({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    };
+
     window.addEventListener('scroll', function() {
         if (animlements > 0) {
             showElements(mainElements);
@@ -129,21 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.header__link').forEach(el => {
         el.addEventListener('click', function(e) {
-            if (document.querySelector('.header__list').classList.contains('header__list_active')) {
-                showHideMenu();
-            }
-
-            e.preventDefault();
-            let scrollto = this.getAttribute('href');
-            const scrollTarget = document.querySelector(scrollto);
-            const topOffset = 50;
-            const elementPosition = scrollTarget.getBoundingClientRect().top;
-            const offsetPosition = elementPosition - topOffset;
-            window.scrollBy({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            scrollToLink(e, el);
         });
+    });
+
+    document.querySelectorAll('.footer__link').forEach(el => {
+        el.addEventListener('click', function(e) {
+            scrollToLink(e, el);
+        })
     });
 
     document.querySelectorAll('.section-how-we-work__step').forEach(el => {
@@ -161,6 +171,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             document.querySelector(`[data-target="${path}"]`).classList.add('section-how-we-work__content_active');
+
+            document.querySelectorAll('.section-how-we-work__image').forEach(tabImage => {
+                tabImage.classList.remove('section-how-we-work__image_active');
+            });
+
+            document.querySelector(`[data-target-img="${path}"]`).classList.add('section-how-we-work__image_active');
         })
     });
 
