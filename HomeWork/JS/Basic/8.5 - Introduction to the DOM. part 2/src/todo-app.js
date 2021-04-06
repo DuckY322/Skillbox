@@ -1,3 +1,7 @@
+myStorage = window.localStorage;
+
+let myTodos = [];
+
 function createAppTitle(title) {
     let appTile = document.createElement(`h2`);
     appTile.innerHTML = title;
@@ -14,6 +18,7 @@ function createTodoItemForm() {
     input.classList.add(`form-control`);
     input.placeholder = `Введите название нового дела`;
     buttonWrapper.classList.add(`input-group-append`);
+    button.setAttribute(`disabled`, `disabled`);
     button.classList.add(`btn`, `btn-primary`);
     button.textContent = `Добавить дело`;
 
@@ -34,7 +39,7 @@ function createTodoList() {
     return list;
 };
 
-function createTodoItem(name) {
+function createTodoItem(name, done) {
     let item = document.createElement(`li`);
 
     let buttonGroup = document.createElement(`div`);
@@ -43,6 +48,9 @@ function createTodoItem(name) {
 
     item.classList.add(`list-group-item`, `d-flex`, `justify-content-between`, `align-items-center`);
     item.textContent = name;
+    if (done) {
+        item.classList.toggle(`list-group-item-success`);
+    }
 
     buttonGroup.classList.add(`btn-group`, `btn-group-sm`);
     doneButton.classList.add(`btn`, `btn-success`);
@@ -61,7 +69,7 @@ function createTodoItem(name) {
     };
 };
 
-function createTodoApp(container, title = `Список дел`) {
+function createTodoApp(container, title = `Список дел`, todosName = `myTodos`) {
     let todoAppTitle = createAppTitle(title);
     let todoItemForm = createTodoItemForm();
     let todoList = createTodoList();
@@ -70,6 +78,17 @@ function createTodoApp(container, title = `Список дел`) {
     container.append(todoItemForm.form);
     container.append(todoList);
 
+    let tempStorage = JSON.parse(myStorage.getItem(todosName));
+    if (tempStorage) {
+        myTodos = tempStorage;
+    }
+
+    for (let todo of myTodos) {
+        let todoItem = createTodoItem(todo.name, todo.done);
+        todoItemButtonEventClick(todoItem, todosName);
+        todoList.append(todoItem.item);
+    }
+
     todoItemForm.form.addEventListener(`submit`, function (e) {
         e.preventDefault();
 
@@ -77,22 +96,62 @@ function createTodoApp(container, title = `Список дел`) {
             return;
         }
 
-        let todoItem = createTodoItem(todoItemForm.input.value);
+        let todoItem = createTodoItem(todoItemForm.input.value, false);
+        todoItemButtonEventClick(todoItem, todosName);
 
-        todoItem.doneButton.addEventListener(`click`, function () {
-            todoItem.item.classList.toggle(`list-group-item-success`);
-        });
-
-        todoItem.deleteButton.addEventListener(`click`, function () {
-            if (confirm(`Вы уверены?`)) {
-                todoItem.item.remove();
-            }
-        });
-
+        myTodos.push({ name: todoItemForm.input.value, done: false });
+        myStorage.setItem(todosName, JSON.stringify(myTodos));
 
         todoList.append(todoItem.item);
         todoItemForm.input.value = ``;
+        disabledFormButton(todoItemForm.input.value, todoItemForm.button);
+    });
+
+    todoItemForm.input.oninput = function () {
+        disabledFormButton(todoItemForm.input.value, todoItemForm.button);
+    }
+
+}
+
+function disabledFormButton(value, button) {
+    if (value) {
+        button.removeAttribute(`disabled`);
+    } else {
+        button.setAttribute(`disabled`, `disabled`);
+    };
+}
+
+function todoItemButtonEventClick(todoItem, todosName) {
+    todoItem.doneButton.addEventListener(`click`, function () {
+        todoItem.item.classList.toggle(`list-group-item-success`);
+
+        for (const todo of myTodos) {
+            if (todo.name === todoItem.item.firstChild.textContent) {
+                if (todoItem.item.classList.contains(`list-group-item-success`)) {
+                    todo.done = true;
+                } else {
+                    todo.done = false;
+                }
+
+                myStorage.setItem(todosName, JSON.stringify(myTodos));
+
+                break;
+            }
+        }
+    });
+
+    todoItem.deleteButton.addEventListener(`click`, function () {
+        if (confirm(`Вы уверены?`)) {
+            for (const todo in myTodos) {
+                if (myTodos[todo].name === todoItem.item.firstChild.textContent) {
+                    myTodos.splice(todo, 1);
+                    myStorage.setItem(todosName, JSON.stringify(myTodos));
+                    todoItem.item.remove();
+                    break;
+                }
+            }
+        }
     });
 }
 
-window.createTodoApp = createTodoApp();
+window.createTodoApp = createTodoApp;
