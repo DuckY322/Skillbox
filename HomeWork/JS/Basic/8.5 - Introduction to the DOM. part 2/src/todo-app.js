@@ -3,16 +3,16 @@ myStorage = window.localStorage;
 let myTodos = [];
 
 function createAppTitle(title) {
-    let appTile = document.createElement(`h2`);
+    const appTile = document.createElement(`h2`);
     appTile.innerHTML = title;
     return appTile;
 };
 
 function createTodoItemForm() {
-    let form = document.createElement(`form`);
-    let input = document.createElement(`input`);
-    let buttonWrapper = document.createElement(`div`);
-    let button = document.createElement(`button`);
+    const form = document.createElement(`form`);
+    const input = document.createElement(`input`);
+    const buttonWrapper = document.createElement(`div`);
+    const button = document.createElement(`button`);
 
     form.classList.add(`input-group`, `mb-3`);
     input.classList.add(`form-control`);
@@ -34,17 +34,17 @@ function createTodoItemForm() {
 };
 
 function createTodoList() {
-    let list = document.createElement(`ul`);
+    const list = document.createElement(`ul`);
     list.classList.add(`list-group`);
     return list;
 };
 
 function createTodoItem(name, done) {
-    let item = document.createElement(`li`);
+    const item = document.createElement(`li`);
 
-    let buttonGroup = document.createElement(`div`);
-    let doneButton = document.createElement(`button`);
-    let deleteButton = document.createElement(`button`);
+    const buttonGroup = document.createElement(`div`);
+    const doneButton = document.createElement(`button`);
+    const deleteButton = document.createElement(`button`);
 
     item.classList.add(`list-group-item`, `d-flex`, `justify-content-between`, `align-items-center`);
     item.textContent = name;
@@ -69,22 +69,22 @@ function createTodoItem(name, done) {
     };
 };
 
-function createTodoApp(container, title = `Список дел`, todosName = `myTodos`) {
-    let todoAppTitle = createAppTitle(title);
-    let todoItemForm = createTodoItemForm();
-    let todoList = createTodoList();
+function createTodoApp(container, title = `Мои дела`, todosName = `myTodos`) {
+    const todoAppTitle = createAppTitle(title);
+    const todoItemForm = createTodoItemForm();
+    const todoList = createTodoList();
 
     container.append(todoAppTitle);
     container.append(todoItemForm.form);
     container.append(todoList);
 
-    let tempStorage = JSON.parse(myStorage.getItem(todosName));
+    const tempStorage = JSON.parse(myStorage.getItem(todosName));
     if (tempStorage) {
         myTodos = tempStorage;
     }
 
-    for (let todo of myTodos) {
-        let todoItem = createTodoItem(todo.name, todo.done);
+    for (const todo of myTodos) {
+        const todoItem = createTodoItem(todo.name, todo.done);
         todoItemButtonEventClick(todoItem, todosName);
         todoList.append(todoItem.item);
     }
@@ -96,11 +96,11 @@ function createTodoApp(container, title = `Список дел`, todosName = `my
             return;
         }
 
-        let todoItem = createTodoItem(todoItemForm.input.value, false);
-        todoItemButtonEventClick(todoItem, todosName);
+        const todoItem = createTodoItem(todoItemForm.input.value, false);
 
         myTodos.push({ name: todoItemForm.input.value, done: false });
         myStorage.setItem(todosName, JSON.stringify(myTodos));
+        todoItemButtonEventClick(todoItem, todosName);
 
         todoList.append(todoItem.item);
         todoItemForm.input.value = ``;
