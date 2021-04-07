@@ -1,27 +1,22 @@
 document.addEventListener(`DOMContentLoaded`, function () {
-
-    let input = document.querySelector(`.input`);
-    let button = document.querySelector(`.button`);
-    let counter = document.querySelector(`.text`);
+    const input = document.querySelector(`.input`);
+    const button = document.querySelector(`.button`);
+    const counter = document.querySelector(`.text`);
 
     let timer;
-    let timerStarted = false;
     let seconds;
 
     function inputEvent() {
         if (input.value && Number.isInteger(parseInt(input.value))) {
-            seconds = input.value;
             startTimer();
         } else {
-            alert(`Введите число в поле для ввода!`)
+            counter.textContent = `Введите число в поле для ввода!`;
         }
     }
 
     function startTimer() {
-        if (timerStarted === true) {
-            clearInterval(timer);
-        }
-        timerStarted = true;
+        clearInterval(timer);
+        seconds = input.value;
         counter.textContent = seconds;
         timer = setInterval(() => {
             timerConditions();
@@ -35,11 +30,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
         }
         if (seconds === 0) {
             clearInterval(timer);
-            timerStarted = 0;
         }
     }
 
-    input.addEventListener(`change`, function () {
+    input.addEventListener(`input`, function () {
         inputEvent()
     });
 

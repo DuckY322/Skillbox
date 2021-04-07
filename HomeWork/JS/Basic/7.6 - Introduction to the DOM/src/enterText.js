@@ -1,36 +1,20 @@
-document.addEventListener(`DOMContentLoaded`, function () {
-    let body = document.body;
-    let container = document.createElement(`div`);
-    let input = document.createElement(`input`);
-    let subTitle = document.createElement(`h2`);
+const input = document.createElement(`input`);
+const subTitle = document.createElement(`h2`);
 
-    container.classList.add(`container`);
-    input.classList.add(`input`);
-    subTitle.classList.add(`text`);
+let timer;
 
-    container.append(input);
-    container.append(subTitle);
+function changeText() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        subTitle.textContent = input.value;
+    }, 300);
+}
 
-    body.append(container);
+input.addEventListener(`input`, function () {
+    changeText();
+});
 
-    let typingStarted = false;
-    let timer;
-
-    function startTimer() {
-        if (typingStarted === true) {
-            clearTimeout(timer);
-        }
-        typingStarted = true;
-        timer = setTimeout(() => {
-            changeText(subTitle, input.value);
-        }, 300);
-    }
-
-    function changeText(element, text) {
-        element.textContent = text;
-    };
-
-    input.addEventListener(`keydown`, function () {
-        startTimer();
-    });
+document.addEventListener(`DOMContentLoaded`, () => {
+    document.body.append(input);
+    document.body.append(subTitle);
 });
