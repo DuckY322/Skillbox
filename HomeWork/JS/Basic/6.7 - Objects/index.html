@@ -5,8 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script defer src="src/object-array-filter.js"></script>
+    <script defer src="src/arrFiltering.js"></script>
     <script defer src="src/select.js"></script>
   </head>
-  <body></body>
+  <body>
+    <script defer>
+      document.addEventListener(`DOMContentLoaded`, function () {
+        creatingSelect(
+          [
+            { value: `Москва`, label: `Москва` },
+            { value: `Санкт-Петергбург`, label: `Санкт-Петергбург` },
+            { value: `Ростов`, label: `Ростов` },
+            { value: `Новосибирск`, label: `Новосибирск` },
+            { value: `Иркутск`, label: `Иркутск` },
+            { value: `Казань`, label: `Казань` },
+            { value1: `value11`, label1: `label11` },
+            1,
+            `Ура`,
+          ],
+          `Новосибирск`
+        );
+      });
+    </script>
+  </body>
 </html>
