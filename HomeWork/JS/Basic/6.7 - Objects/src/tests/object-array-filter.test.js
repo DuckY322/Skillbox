@@ -1,4 +1,4 @@
-import filter from '../object-array-filter';
+import filter from '../arrFiltering';
 
 describe('Filter array of objects by object property value', () => {
   it('should just work as expected', () => {
