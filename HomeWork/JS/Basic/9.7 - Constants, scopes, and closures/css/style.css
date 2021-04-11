@@ -223,7 +223,7 @@ html {
   flex-direction: column;
   justify-content: center;
   padding: 50px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   background: var(--color-F);
 }
 
@@ -243,4 +243,67 @@ html {
 
 .section-menu__label {
   font-weight: 600;
+}
+
+/* Section Game */
+
+.section-game__container {
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.section-game__time {
+  margin-bottom: 25px;
+}
+
+.section-game__cards-left {
+  margin-bottom: 50px;
+}
+
+.section-game__card-field {
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  width: 60vw;
+  height: 60vh;
+}
+
+.section-game__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 25%;
+  height: 25%;
+}
+
+.section-game__card_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  background: var(--color-F);
+  border-radius: var(--border-radius);
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+.section-game__card_inner_back {
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  background: var(--color-light-orange);
+  border-radius: var(--border-radius);
+}
+
+.section-game__card_inner_back::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(248.67deg, rgba(255, 255, 255, 0) 30.84%, rgba(255, 255, 255, 0.29) 46.06%, rgba(255, 255, 255, 0) 64.04%);
 }
