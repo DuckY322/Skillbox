@@ -761,6 +761,7 @@ html {
 }
 
 .section-how-we-work__info {
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
     width: 42.825%;
@@ -770,7 +771,8 @@ html {
 
 .section-how-we-work__content {
     display: none;
-    margin-bottom: 50px;
+    padding-bottom: 110px;
+    height: 100%;
 }
 
 .section-how-we-work__content_active {
@@ -790,6 +792,9 @@ html {
 }
 
 .section-how-we-work__buttons {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     justify-content: flex-start;
 }
 
