@@ -1,36 +1,44 @@
-function arrConverting(sourceArr) {
-  let readyArr = [];
-
-  for (const item of sourceArr) {
-    if (typeof item === "object") {
-      if (item.value && item.label) {
-        readyArr.push({ value: item.value, label: item.label });
-      } else if (!item.value && item.label) {
-        readyArr.push({ value: item.label, label: item.label });
-      } else if (item.value && !item.label) {
-        readyArr.push({ value: item.value, label: item.value });
-      } else {
-        const entries = Object.entries(item);
-        for (const [key, value] of entries) {
-          readyArr.push({ value: value, label: value });
-        }
-      }
-    } else {
-      readyArr.push({ value: item, label: item });
-    }
-  }
-
-  return readyArr;
+function isObject(data) {
+  return Object.prototype.toString.call(data) === "[object Object]";
 }
 
-function creatingSelect(optionsArr, selectedOption) {
-  const readyArr = arrConverting(optionsArr);
+function objectParsing(optionsData, item) {
+  Object.keys(item).forEach((label) => {
+    optionsData.push({ value: item[label], label: item[label] })
+  });
+}
+
+function dataConverting(data) {
+  const optionsData = [];
+  const isDataArray = Array.isArray(data);
+
+  for (const key in data) {
+    let optionSet = {};
+    const { value = data[key].label, label = data[key].value } = data[key];
+
+    if ((value, label)) {
+      optionSet = { value, label };
+    } else if (isObject(data[key])) {
+      objectParsing(optionsData, data[key]);
+      continue;
+    } else {
+      optionSet = { value: isDataArray ? data[key] : key, label: data[key] };
+    }
+
+    optionsData.push(optionSet);
+  }
+
+  return optionsData;
+}
+
+function creatingSelect(options, selectedOption) {
+  const readyArr = dataConverting(options);
   const select = document.createElement(`select`);
   const body = document.body;
 
   for (const item of readyArr) {
     const option = document.createElement(`option`);
-    
+
     option.value = item.value;
     option.textContent = item.label;
 
