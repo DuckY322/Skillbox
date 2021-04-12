@@ -7,23 +7,23 @@ document.addEventListener(`DOMContentLoaded`, function () {
     let seconds;
 
     function inputEvent() {
-        if (input.value && Number.isInteger(parseInt(input.value))) {
-            startTimer();
+        if (parseInt(input.value)) {
+            timerStarting();
         } else {
             counter.textContent = `Введите число в поле для ввода!`;
         }
     }
 
-    function startTimer() {
+    function timerStarting() {
         clearInterval(timer);
         seconds = input.value;
         counter.textContent = seconds;
         timer = setInterval(() => {
-            timerConditions();
+            timerAction();
         }, 1000);
     }
 
-    function timerConditions() {
+    function timerAction() {
         if (seconds > 0) {
             seconds--;
             counter.textContent = seconds;
@@ -33,7 +33,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
         }
     }
 
-    input.addEventListener(`input`, function () {
+    input.addEventListener(`change`, function () {
         inputEvent()
     });
 
