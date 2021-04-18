@@ -250,8 +250,8 @@ html {
 .section-game__container {
   flex-direction: column;
   justify-content: center;
-  width: 100vw;
-  height: 100%;
+  padding-top: 50px;
+  margin-bottom: 0;
 }
 
 .section-game__time {
@@ -264,9 +264,6 @@ html {
 
 .section-game__card-field {
   flex-wrap: wrap;
-  margin-bottom: 50px;
-  width: 69vw;
-  height: 69vh;
 }
 
 .section-game__card {
@@ -285,7 +282,7 @@ html {
   min-height: 100%;
   background: var(--color-F);
   border-radius: var(--border-radius);
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 700;
   color: var(--color-orange);
 }
@@ -304,5 +301,10 @@ html {
   content: "";
   width: 100%;
   height: 100%;
-  background: linear-gradient(248.67deg, rgba(255, 255, 255, 0) 30.84%, rgba(255, 255, 255, 0.29) 46.06%, rgba(255, 255, 255, 0) 64.04%);
+  background: linear-gradient(
+    248.67deg,
+    rgba(255, 255, 255, 0) 30.84%,
+    rgba(255, 255, 255, 0.29) 46.06%,
+    rgba(255, 255, 255, 0) 64.04%
+  );
 }

@@ -1,11 +1,9 @@
 document.addEventListener(`DOMContentLoaded`, function () {
 
-    const body = document.body;
-
     const menu = document.querySelector(`.section-menu`);
-    const NickName = document.getElementById(`input-nickName`);
-    const cardCountVertical = document.getElementById(`input-cardCountVert`);
-    const cardCountHorizont = document.getElementById(`input-cardCountHor`);
+    let NickName = document.getElementById(`input-nickName`);
+    let cardCountVertical = document.getElementById(`input-cardCountVert`);
+    let cardCountHorizont = document.getElementById(`input-cardCountHor`);
     const btnStartGame = document.querySelector(`.section-menu__btn`);
 
     const game = document.querySelector(`.section-game`);
@@ -26,6 +24,9 @@ document.addEventListener(`DOMContentLoaded`, function () {
             if ((parseInt(cardCountVertical.value) && parseInt(cardCountVertical.value) % 2 === 0 && parseInt(cardCountVertical.value) >= 2 && parseInt(cardCountVertical.value) <= 10) &&
                 (parseInt(cardCountHorizont.value) && parseInt(cardCountHorizont.value) % 2 === 0 && parseInt(cardCountHorizont.value) >= 2 && parseInt(cardCountHorizont.value) <= 10)) {
 
+                NickName = NickName.value;
+                cardCountVertical = parseInt(cardCountVertical.value);
+                cardCountHorizont = parseInt(cardCountHorizont.value);
                 startGame();
 
             } else {
@@ -40,10 +41,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
         menu.classList.toggle(`off`);
         game.classList.toggle(`off`);
 
-        cardsCount = parseInt(cardCountVertical.value * cardCountHorizont.value);
+        cardsCount = cardCountVertical * cardCountHorizont;
         numberCardPairs = cardsCount / 2;
 
-        gameTitle.textContent = `Удачи, ${NickName.value}!`;
+        gameTitle.textContent = `Удачи, ${NickName}!`;
         gameTime.textContent = `Оставшееся время: ${timeLeft / 60 < 10 && timeLeft / 60 >= 1 ? `0${Math.floor(timeLeft / 60)}` : `00`}:${timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}`;
 
         timer = setInterval(() => {
@@ -75,33 +76,53 @@ document.addEventListener(`DOMContentLoaded`, function () {
         gameCardsLeft.textContent = `Пар карточек найдено: ${foundСards}/${numberCardPairs}`;
 
 
-        for (let i = 0; i < cardsCount; i++) {
+        for (let i = 1; i <= cardsCount / 2; i++) {
+            cards.push({
+                cardNumber: i,
+                opened: true,
+            });
+            cards.push({
+                cardNumber: i,
+                opened: true,
+            });
 
+        }
+
+        for (let i = 0; i < cardsCount; i++) {
             let card = document.createElement(`div`);
             card.classList.add(`section-game__card`)
 
             let cardInner = document.createElement(`div`);
             cardInner.classList.add(`section-game__card_inner`);
 
+            let setCardNumber = false
+            while (!setCardNumber) {
+                let tempCard = cards[Math.floor(Math.random() * (cards.length - 0) + 0)];
+                if (tempCard.opened) {
+                    tempCard.opened = false;
+                    cardInner.textContent = tempCard.cardNumber;
+                    setCardNumber = true;
+                }
+            }
+
             let cardInnerBack = document.createElement(`div`);
             cardInnerBack.classList.add(`section-game__card_inner_back`);
-            
+
             card.append(cardInner);
             card.append(cardInnerBack);
 
-            card.style.width = 100 / parseInt(cardCountHorizont.value) + `%`;
-            card.style.height = 100 / parseInt(cardCountVertical.value) + `%`;
+            card.style.width = 100 / cardCountHorizont + `%`;
+            card.style.height = 100 / cardCountVertical + `%`;
 
-            card.addEventListener(`click`, function() {
+            card.addEventListener(`click`, function () {
                 card.classList.toggle(`section-game__card_active`);
             });
 
             gameCardField.append(card);
-
-            cards.push({
-                cardNumber: i + 1
-            });
         }
+
+        gameCardField.style.width = cardCountHorizont * 100 + `px`;
+        gameCardField.style.height = cardCountVertical * 100 + `px`;
     };
 
     btnStartGame.addEventListener(`click`, function () {
