@@ -1,9 +1,9 @@
 document.addEventListener(`DOMContentLoaded`, function () {
 
     const menu = document.querySelector(`.section-menu`);
-    let NickName = document.getElementById(`input-nickName`);
-    let cardCountVertical = document.getElementById(`input-cardCountVert`);
-    let cardCountHorizont = document.getElementById(`input-cardCountHor`);
+    const NickNameValue = document.getElementById(`input-nickName`);
+    const cardCountVerticalValue = document.getElementById(`input-cardCountVert`);
+    const cardCountHorizontValue = document.getElementById(`input-cardCountHor`);
     const btnStartGame = document.querySelector(`.section-menu__btn`);
 
     const game = document.querySelector(`.section-game`);
@@ -12,21 +12,140 @@ document.addEventListener(`DOMContentLoaded`, function () {
     const gameCardsLeft = document.querySelector(`.section-game__cards-left`);
     const gameCardField = document.querySelector(`.section-game__card-field`);
 
+    const gameOver = document.querySelector(`.section-gameover`);
+    const gameOverTime = document.querySelector(`.section-gameover__time`);
+    const gameOverCardsLeft = document.querySelector(`.section-gameover__cards-left`);
+    const btnRepeatGame = document.querySelector(`.section-gameover__button`);
+
+
+    let NickName;
+    let cardCountVertical;
+    let cardCountHorizont;
     let timer;
-    let timeLeft = 60; //sec
-    let foundСards = 0;
+    let cardFlipTimer;
+    let timeLeft;
+    let foundPairs = [];
     let numberCardPairs;
     let cardsCount;
+    let OpenCards = [];
     let cards = [];
+    let widthCard;
+    let heightCard;
+
+    function generatingCardNumbers() {
+        for (let i = 1; i <= cardsCount / 2; i++) {
+            cards.push({
+                cardNumber: i,
+                created: false,
+            });
+            cards.push({
+                cardNumber: i,
+                created: false,
+            });
+
+        }
+    }
+
+    function generatingCards() {
+
+        generatingCardNumbers();
+
+        for (let i = 0; i < cardsCount; i++) {
+            let card = document.createElement(`div`);
+            card.classList.add(`section-game__card`)
+
+            let cardInner = document.createElement(`div`);
+            cardInner.classList.add(`section-game__card_inner`);
+
+            let cardInnerBack = document.createElement(`div`);
+            cardInnerBack.classList.add(`section-game__card_inner_back`);
+
+            cardInner.textContent = shufflingCards();
+
+            card.append(cardInner);
+            card.append(cardInnerBack);
+
+            card.style.width = widthCard;
+            card.style.height = heightCard;
+
+            card.addEventListener(`click`, function () {
+                gameController(card, cardInner)
+            });
+
+            gameCardField.append(card);
+        }
+    }
+
+    function flippingCards() {
+        OpenCards = [];
+        if (foundPairs.length < 1) {
+            document.querySelectorAll(`.section-game__card`).forEach(element => {
+                element.classList.remove(`section-game__card_active`);
+            });
+        } else {
+            document.querySelectorAll(`.section-game__card`).forEach(element => {
+                if (foundPairs.indexOf(element.querySelector(`.section-game__card_inner`).textContent) >= 0) {
+                    element.classList.add(`section-game__card_active`);
+                } else {
+                    element.classList.remove(`section-game__card_active`);
+                }
+            });
+        }
+    }
+
+    function registrationFoundCards() {
+        if (OpenCards.length === 2 && OpenCards[0] === OpenCards[1]) {
+            foundPairs.push(OpenCards[0]);
+            gameCardsLeft.textContent = `Пар карточек найдено: ${foundPairs.length}/${numberCardPairs}`;
+
+            if (foundPairs.length === numberCardPairs) {
+                finishGame();
+            }
+        }
+    }
+
+    function timeRendering(timeLeft) {
+        let minLeft;
+        let secLeft;
+
+        if (timeLeft / 60 < 10 && timeLeft / 60 >= 1) {
+            minLeft = `0${Math.floor(timeLeft / 60)}`
+        } else if (timeLeft / 60 < 10 && timeLeft / 60 < 1) {
+            minLeft = `00`
+        } else {
+            minLeft = Math.floor(timeLeft / 60)
+        }
+
+        if (timeLeft % 60 < 10) {
+            secLeft = `0${timeLeft % 60}`
+        } else {
+            secLeft = timeLeft % 60
+        }
+
+        return {
+            minLeft,
+            secLeft
+        }
+    }
+
+    function shufflingCards() {
+        while (true) {
+            let tempCard = cards[Math.floor(Math.random() * (cards.length - 0) + 0)];
+            if (!tempCard.created) {
+                tempCard.created = true;
+                return tempCard.cardNumber;
+            }
+        }
+    }
 
     function checkingSettings() {
-        if (NickName.value) {
-            if ((parseInt(cardCountVertical.value) && parseInt(cardCountVertical.value) % 2 === 0 && parseInt(cardCountVertical.value) >= 2 && parseInt(cardCountVertical.value) <= 10) &&
-                (parseInt(cardCountHorizont.value) && parseInt(cardCountHorizont.value) % 2 === 0 && parseInt(cardCountHorizont.value) >= 2 && parseInt(cardCountHorizont.value) <= 10)) {
+        if (NickNameValue.value) {
+            if ((parseInt(cardCountVerticalValue.value) && parseInt(cardCountVerticalValue.value) % 2 === 0 && parseInt(cardCountVerticalValue.value) >= 2 && parseInt(cardCountVerticalValue.value) <= 10) &&
+                (parseInt(cardCountHorizontValue.value) && parseInt(cardCountHorizontValue.value) % 2 === 0 && parseInt(cardCountHorizontValue.value) >= 2 && parseInt(cardCountHorizontValue.value) <= 10)) {
 
-                NickName = NickName.value;
-                cardCountVertical = parseInt(cardCountVertical.value);
-                cardCountHorizont = parseInt(cardCountHorizont.value);
+                NickName = NickNameValue.value;
+                cardCountVertical = parseInt(cardCountVerticalValue.value);
+                cardCountHorizont = parseInt(cardCountHorizontValue.value);
                 startGame();
 
             } else {
@@ -38,95 +157,94 @@ document.addEventListener(`DOMContentLoaded`, function () {
     };
 
     function startGame() {
-        menu.classList.toggle(`off`);
-        game.classList.toggle(`off`);
+        document.querySelectorAll(`.section-game__card`).forEach(element => {
+            element.remove();
+        });
+        foundPairs = [];
+        OpenCards = [];
+        cards = [];
+
+        menu.classList.add(`off`);
+        game.classList.remove(`off`);
+        gameOver.classList.add(`off`);
 
         cardsCount = cardCountVertical * cardCountHorizont;
         numberCardPairs = cardsCount / 2;
+        timeLeft = cardsCount * 5;
 
         gameTitle.textContent = `Удачи, ${NickName}!`;
-        gameTime.textContent = `Оставшееся время: ${timeLeft / 60 < 10 && timeLeft / 60 >= 1 ? `0${Math.floor(timeLeft / 60)}` : `00`}:${timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}`;
 
-        timer = setInterval(() => {
-            timeLeft--;
-            let minLeft;
-            let secLeft;
+        let timeCounting = timeRendering(timeLeft);
+        gameTime.textContent = `Оставшееся время: ${timeCounting.minLeft}:${timeCounting.secLeft}`;
 
-            if (timeLeft / 60 < 10 && timeLeft / 60 >= 1) {
-                minLeft = `0${Math.floor(timeLeft / 60)}`
-            } else if (timeLeft / 60 < 10 && timeLeft / 60 < 1) {
-                minLeft = `00`
-            } else {
-                minLeft = Math.floor(timeLeft / 60)
-            }
-
-            if (timeLeft % 60 < 10) {
-                secLeft = `0${timeLeft % 60}`
-            } else {
-                secLeft = timeLeft % 60
-            }
-
-            gameTime.textContent = `Оставшееся время: ${minLeft}:${secLeft}`;
-
-            if (timeLeft === 0) {
-                clearInterval(timer);
-            }
-        }, 1000);
-
-        gameCardsLeft.textContent = `Пар карточек найдено: ${foundСards}/${numberCardPairs}`;
-
-
-        for (let i = 1; i <= cardsCount / 2; i++) {
-            cards.push({
-                cardNumber: i,
-                opened: true,
-            });
-            cards.push({
-                cardNumber: i,
-                opened: true,
-            });
-
-        }
-
-        for (let i = 0; i < cardsCount; i++) {
-            let card = document.createElement(`div`);
-            card.classList.add(`section-game__card`)
-
-            let cardInner = document.createElement(`div`);
-            cardInner.classList.add(`section-game__card_inner`);
-
-            let setCardNumber = false
-            while (!setCardNumber) {
-                let tempCard = cards[Math.floor(Math.random() * (cards.length - 0) + 0)];
-                if (tempCard.opened) {
-                    tempCard.opened = false;
-                    cardInner.textContent = tempCard.cardNumber;
-                    setCardNumber = true;
-                }
-            }
-
-            let cardInnerBack = document.createElement(`div`);
-            cardInnerBack.classList.add(`section-game__card_inner_back`);
-
-            card.append(cardInner);
-            card.append(cardInnerBack);
-
-            card.style.width = 100 / cardCountHorizont + `%`;
-            card.style.height = 100 / cardCountVertical + `%`;
-
-            card.addEventListener(`click`, function () {
-                card.classList.toggle(`section-game__card_active`);
-            });
-
-            gameCardField.append(card);
-        }
+        gameCardsLeft.textContent = `Пар карточек найдено: ${foundPairs.length}/${numberCardPairs}`;
 
         gameCardField.style.width = cardCountHorizont * 100 + `px`;
         gameCardField.style.height = cardCountVertical * 100 + `px`;
+
+        widthCard = 100 / cardCountHorizont + `%`;
+        heightCard = 100 / cardCountVertical + `%`;
+
+        generatingCards();
+
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            timeLeft--;
+
+            let timeCounting = timeRendering(timeLeft)
+            gameTime.textContent = `Оставшееся время: ${timeCounting.minLeft}:${timeCounting.secLeft}`;
+
+            if (timeLeft === 0) {
+                finishGame();
+            }
+        }, 1000);
     };
+
+    function gameController(card, cardInner) {
+        if (foundPairs.indexOf(card.querySelector(`.section-game__card_inner`).textContent) === -1) {
+            if (OpenCards.length >= 2) {
+                flippingCards()
+            }
+
+            OpenCards.push(cardInner.textContent);
+
+            registrationFoundCards();
+
+            card.classList.add(`section-game__card_active`);
+
+            clearTimeout(cardFlipTimer);
+
+            cardFlipTimer = setTimeout(() => {
+                flippingCards()
+            }, 3000);
+        }
+    }
+
+    function finishGame() {
+        if (timeLeft <= 0) {
+            gameOverTime.textContent = `Время вышло!`;
+        } else {
+            gameOverTime.textContent = gameTime.textContent;
+        }
+
+        gameOverCardsLeft.textContent = gameCardsLeft.textContent;
+
+        clearInterval(timer)
+
+        menu.classList.add(`off`);
+        game.classList.add(`off`);
+        gameOver.classList.remove(`off`);
+    }
 
     btnStartGame.addEventListener(`click`, function () {
         checkingSettings();
+    });
+
+    btnRepeatGame.addEventListener(`click`, function () {
+        menu.classList.remove(`off`);
+        game.classList.add(`off`);
+        gameOver.classList.add(`off`);
     });
 
 
