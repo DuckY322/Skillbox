@@ -1,7 +1,7 @@
 document.addEventListener(`DOMContentLoaded`, function () {
 
     const menu = document.querySelector(`.section-menu`);
-    const NickNameValue = document.getElementById(`input-nickName`);
+    // const NickNameValue = document.getElementById(`input-nickName`);
     const cardCountVerticalValue = document.getElementById(`input-cardCountVert`);
     const cardCountHorizontValue = document.getElementById(`input-cardCountHor`);
     const btnStartGame = document.querySelector(`.section-menu__btn`);
@@ -18,7 +18,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
     const btnRepeatGame = document.querySelector(`.section-gameover__button`);
 
 
-    let NickName;
+    // let NickName;
     let cardCountVertical;
     let cardCountHorizont;
     let timer;
@@ -76,20 +76,26 @@ document.addEventListener(`DOMContentLoaded`, function () {
         }
     }
 
-    function flippingCards() {
-        OpenCards = [];
+    function checkForCardsFlipping() {
         if (foundPairs.length < 1) {
             document.querySelectorAll(`.section-game__card`).forEach(element => {
-                element.classList.remove(`section-game__card_active`);
+                flippingCard(element);
             });
         } else {
             document.querySelectorAll(`.section-game__card`).forEach(element => {
-                if (foundPairs.indexOf(element.querySelector(`.section-game__card_inner`).textContent) >= 0) {
-                    element.classList.add(`section-game__card_active`);
-                } else {
-                    element.classList.remove(`section-game__card_active`);
+                if (foundPairs.indexOf(element.querySelector(`.section-game__card_inner`).textContent) === -1) {
+                    flippingCard(element);
                 }
             });
+        }
+
+        OpenCards = [];
+    }
+
+    function flippingCard(card) {
+        if (card.classList.contains(`section-game__card_active`)) {
+            card.classList.remove(`section-game__card_active`);
+            card.classList.add(`section-game__card_not-active`);
         }
     }
 
@@ -139,27 +145,28 @@ document.addEventListener(`DOMContentLoaded`, function () {
     }
 
     function checkingSettings() {
-        if (NickNameValue.value) {
-            if ((parseInt(cardCountVerticalValue.value) && parseInt(cardCountVerticalValue.value) % 2 === 0 && parseInt(cardCountVerticalValue.value) >= 2 && parseInt(cardCountVerticalValue.value) <= 10) &&
-                (parseInt(cardCountHorizontValue.value) && parseInt(cardCountHorizontValue.value) % 2 === 0 && parseInt(cardCountHorizontValue.value) >= 2 && parseInt(cardCountHorizontValue.value) <= 10)) {
+        // if (NickNameValue.value) {
+        if ((parseInt(cardCountVerticalValue.value) && parseInt(cardCountVerticalValue.value) % 2 === 0 && parseInt(cardCountVerticalValue.value) >= 2 && parseInt(cardCountVerticalValue.value) <= 10) &&
+            (parseInt(cardCountHorizontValue.value) && parseInt(cardCountHorizontValue.value) % 2 === 0 && parseInt(cardCountHorizontValue.value) >= 2 && parseInt(cardCountHorizontValue.value) <= 10)) {
 
-                NickName = NickNameValue.value;
-                cardCountVertical = parseInt(cardCountVerticalValue.value);
-                cardCountHorizont = parseInt(cardCountHorizontValue.value);
-                startGame();
+            // NickName = NickNameValue.value;
+            cardCountVertical = parseInt(cardCountVerticalValue.value);
+            cardCountHorizont = parseInt(cardCountHorizontValue.value);
+            startGame();
 
-            } else {
-                alert(`Укажите корректное количество карточек`);
-            }
         } else {
-            alert(`Введите, пожалуйста, никнейм`);
+            alert(`Укажите корректное количество карточек`);
         }
+        // } else {
+        //     alert(`Введите, пожалуйста, никнейм`);
+        // }
     };
 
     function startGame() {
         document.querySelectorAll(`.section-game__card`).forEach(element => {
             element.remove();
         });
+
         foundPairs = [];
         OpenCards = [];
         cards = [];
@@ -170,9 +177,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
 
         cardsCount = cardCountVertical * cardCountHorizont;
         numberCardPairs = cardsCount / 2;
-        timeLeft = cardsCount * 5;
+        timeLeft = cardsCount * 2.5;
 
-        gameTitle.textContent = `Удачи, ${NickName}!`;
+        // gameTitle.textContent = `Удачи, ${NickName}!`;
+        gameTitle.textContent = `Удачной игры!`;
 
         let timeCounting = timeRendering(timeLeft);
         gameTime.textContent = `Оставшееся время: ${timeCounting.minLeft}:${timeCounting.secLeft}`;
@@ -202,22 +210,24 @@ document.addEventListener(`DOMContentLoaded`, function () {
     };
 
     function gameController(card, cardInner) {
-        if (foundPairs.indexOf(card.querySelector(`.section-game__card_inner`).textContent) === -1) {
+        if (foundPairs.indexOf(card.querySelector(`.section-game__card_inner`).textContent) === -1 &&
+            !card.classList.contains(`section-game__card_active`)) {
             if (OpenCards.length >= 2) {
-                flippingCards()
+                checkForCardsFlipping()
             }
 
             OpenCards.push(cardInner.textContent);
 
             registrationFoundCards();
 
+            card.classList.remove(`section-game__card_not-active`);
             card.classList.add(`section-game__card_active`);
 
             clearTimeout(cardFlipTimer);
 
             cardFlipTimer = setTimeout(() => {
-                flippingCards()
-            }, 3000);
+                checkForCardsFlipping()
+            }, 2000);
         }
     }
 

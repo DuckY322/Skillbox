@@ -1,14 +1,27 @@
-.section-game__card_active .section-game__card_inner_back{
+.section-game__card_active .section-game__card_inner_back {
   animation-name: FlipCardDown;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   z-index: -1;
 }
 
-.section-game__card_active .section-game__card_inner{
+.section-game__card_active .section-game__card_inner {
   animation-name: FlipCardUp;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
+}
+
+.section-game__card_not-active .section-game__card_inner_back {
+  animation-name: FlipCardUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.section-game__card_not-active .section-game__card_inner {
+  animation-name: FlipCardDown;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  z-index: -1;
 }
 
 @keyframes FlipCardDown {
