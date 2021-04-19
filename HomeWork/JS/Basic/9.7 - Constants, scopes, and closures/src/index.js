@@ -177,7 +177,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
 
         cardsCount = cardCountVertical * cardCountHorizont;
         numberCardPairs = cardsCount / 2;
-        timeLeft = cardsCount * 2.5;
+        timeLeft = cardsCount * 5;
 
         // gameTitle.textContent = `Удачи, ${NickName}!`;
         gameTitle.textContent = `Удачной игры!`;
