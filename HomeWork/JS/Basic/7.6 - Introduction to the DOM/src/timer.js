@@ -6,7 +6,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
     let timer;
     let seconds;
 
-    function inputEvent() {
+    function onTimerFieldInput() {
         if (parseInt(input.value)) {
             timerStarting();
         } else {
@@ -33,11 +33,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
         }
     }
 
-    input.addEventListener(`change`, function () {
-        inputEvent()
-    });
+    input.addEventListener(`change`, onTimerFieldInput);
 
-    button.addEventListener(`click`, function () {
-        inputEvent()
-    });
+    button.addEventListener(`click`, onTimerFieldInput);
 });
