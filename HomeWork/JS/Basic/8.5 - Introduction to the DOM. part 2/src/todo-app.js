@@ -69,7 +69,18 @@ function createTodoItem(name, done) {
     };
 };
 
-function createTodoApp(container, title = `Мои дела`, todosName = `myTodos`) {
+function initialTodosArr(todos) {
+    if (Object.prototype.toString.call(todos) === "[object Array]") {
+        return todos;
+    } else {
+        const tempStorage = JSON.parse(myStorage.getItem(todos));
+        if (tempStorage) {
+            return tempStorage;
+        }
+    }
+}
+
+function createTodoApp(container, title = `Мои дела`, todos = `myTodos`) {
     const todoAppTitle = createAppTitle(title);
     const todoItemForm = createTodoItemForm();
     const todoList = createTodoList();
@@ -78,14 +89,11 @@ function createTodoApp(container, title = `Мои дела`, todosName = `myTodo
     container.append(todoItemForm.form);
     container.append(todoList);
 
-    const tempStorage = JSON.parse(myStorage.getItem(todosName));
-    if (tempStorage) {
-        myTodos = tempStorage;
-    }
+    myTodos = initialTodosArr(todos);
 
     for (const todo of myTodos) {
         const todoItem = createTodoItem(todo.name, todo.done);
-        todoItemButtonEventClick(todoItem, todosName);
+        todoItemButtonEventClick(todoItem, todos);
         todoList.append(todoItem.item);
     }
 
@@ -99,8 +107,8 @@ function createTodoApp(container, title = `Мои дела`, todosName = `myTodo
         const todoItem = createTodoItem(todoItemForm.input.value, false);
 
         myTodos.push({ name: todoItemForm.input.value, done: false });
-        myStorage.setItem(todosName, JSON.stringify(myTodos));
-        todoItemButtonEventClick(todoItem, todosName);
+        myStorage.setItem(todos, JSON.stringify(myTodos));
+        todoItemButtonEventClick(todoItem, todos);
 
         todoList.append(todoItem.item);
         todoItemForm.input.value = ``;
@@ -121,7 +129,7 @@ function disabledFormButton(value, button) {
     };
 }
 
-function todoItemButtonEventClick(todoItem, todosName) {
+function todoItemButtonEventClick(todoItem, todos) {
     todoItem.doneButton.addEventListener(`click`, function () {
         todoItem.item.classList.toggle(`list-group-item-success`);
 
@@ -133,7 +141,7 @@ function todoItemButtonEventClick(todoItem, todosName) {
                     todo.done = false;
                 }
 
-                myStorage.setItem(todosName, JSON.stringify(myTodos));
+                myStorage.setItem(todos, JSON.stringify(myTodos));
 
                 break;
             }
@@ -145,7 +153,7 @@ function todoItemButtonEventClick(todoItem, todosName) {
             for (const todo in myTodos) {
                 if (myTodos[todo].name === todoItem.item.firstChild.textContent) {
                     myTodos.splice(todo, 1);
-                    myStorage.setItem(todosName, JSON.stringify(myTodos));
+                    myStorage.setItem(todos, JSON.stringify(myTodos));
                     todoItem.item.remove();
                     break;
                 }
