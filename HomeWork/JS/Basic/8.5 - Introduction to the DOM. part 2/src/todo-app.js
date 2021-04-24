@@ -69,18 +69,25 @@ function createTodoItem(name, done) {
     };
 };
 
-function initialTodosArr(todos) {
-    if (Object.prototype.toString.call(todos) === "[object Array]") {
-        return todos;
+function initialTodosArr(todos, todosArr) {
+    if (todosArr) {
+        const tempStorage = JSON.parse(myStorage.getItem(todos));
+
+        if (tempStorage === null || tempStorage.length === 0 || JSON.stringify(tempStorage) === JSON.stringify(todosArr)) {
+            return todosArr;
+        } else {
+            return tempStorage;
+        }
     } else {
         const tempStorage = JSON.parse(myStorage.getItem(todos));
+
         if (tempStorage) {
             return tempStorage;
         }
     }
 }
 
-function createTodoApp(container, title = `Мои дела`, todos = `myTodos`) {
+function createTodoApp(container, title = `Мои дела`, todos = `myTodos`, todosArr = null) {
     const todoAppTitle = createAppTitle(title);
     const todoItemForm = createTodoItemForm();
     const todoList = createTodoList();
@@ -89,7 +96,7 @@ function createTodoApp(container, title = `Мои дела`, todos = `myTodos`) 
     container.append(todoItemForm.form);
     container.append(todoList);
 
-    myTodos = initialTodosArr(todos);
+    myTodos = initialTodosArr(todos, todosArr);
 
     for (const todo of myTodos) {
         const todoItem = createTodoItem(todo.name, todo.done);
