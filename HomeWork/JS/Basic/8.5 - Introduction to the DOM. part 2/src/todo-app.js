@@ -1,5 +1,6 @@
 myStorage = window.localStorage;
 
+let todosName;
 let myTodos = [];
 
 function createAppTitle(title) {
@@ -39,7 +40,9 @@ function createTodoList() {
     return list;
 };
 
-function createTodoItem(name, done) {
+function createTodoItemElement(todoItemElement) {
+    const doneClass = `list-group-item-success`;
+
     const item = document.createElement(`li`);
 
     const buttonGroup = document.createElement(`div`);
@@ -47,10 +50,41 @@ function createTodoItem(name, done) {
     const deleteButton = document.createElement(`button`);
 
     item.classList.add(`list-group-item`, `d-flex`, `justify-content-between`, `align-items-center`);
-    item.textContent = name;
-    if (done) {
-        item.classList.toggle(`list-group-item-success`);
+    item.textContent = todoItemElement.name;
+    if (todoItemElement.done) {
+        item.classList.toggle(doneClass);
     }
+
+    doneButton.addEventListener(`click`, function () {
+        item.classList.toggle(doneClass);
+
+        for (const todo of myTodos) {
+            if (todo.name === item.firstChild.textContent) {
+                if (item.classList.contains(doneClass)) {
+                    todo.done = true;
+                } else {
+                    todo.done = false;
+                }
+
+                myStorage.setItem(todosName, JSON.stringify(myTodos));
+
+                break;
+            }
+        }
+    });
+
+    deleteButton.addEventListener(`click`, function () {
+        if (confirm(`Вы уверены?`)) {
+            for (const todo in myTodos) {
+                if (myTodos[todo].name === item.firstChild.textContent) {
+                    myTodos.splice(todo, 1);
+                    myStorage.setItem(todosName, JSON.stringify(myTodos));
+                    item.remove();
+                    break;
+                }
+            }
+        }
+    });
 
     buttonGroup.classList.add(`btn-group`, `btn-group-sm`);
     doneButton.classList.add(`btn`, `btn-success`);
@@ -62,16 +96,12 @@ function createTodoItem(name, done) {
     buttonGroup.append(deleteButton);
     item.append(buttonGroup);
 
-    return {
-        item,
-        doneButton,
-        deleteButton,
-    };
+    return item;
 };
 
-function initialTodosArr(todos, todosArr) {
+function initialTodosArr(todosName, todosArr) {
     if (todosArr) {
-        const tempStorage = JSON.parse(myStorage.getItem(todos));
+        const tempStorage = JSON.parse(myStorage.getItem(todosName));
 
         if (tempStorage === null || tempStorage.length === 0 || JSON.stringify(tempStorage) === JSON.stringify(todosArr)) {
             return todosArr;
@@ -79,7 +109,7 @@ function initialTodosArr(todos, todosArr) {
             return tempStorage;
         }
     } else {
-        const tempStorage = JSON.parse(myStorage.getItem(todos));
+        const tempStorage = JSON.parse(myStorage.getItem(todosName));
 
         if (tempStorage) {
             return tempStorage;
@@ -96,12 +126,12 @@ function createTodoApp(container, title = `Мои дела`, todos = `myTodos`, 
     container.append(todoItemForm.form);
     container.append(todoList);
 
-    myTodos = initialTodosArr(todos, todosArr);
+    todosName = todos;
+    myTodos = initialTodosArr(todosName, todosArr);
 
     for (const todo of myTodos) {
-        const todoItem = createTodoItem(todo.name, todo.done);
-        todoItemButtonEventClick(todoItem, todos);
-        todoList.append(todoItem.item);
+        const todoItemElement = createTodoItemElement(todo);
+        todoList.append(todoItemElement);
     }
 
     todoItemForm.form.addEventListener(`submit`, function (e) {
@@ -111,13 +141,14 @@ function createTodoApp(container, title = `Мои дела`, todos = `myTodos`, 
             return;
         }
 
-        const todoItem = createTodoItem(todoItemForm.input.value, false);
+        let objTodo = { name: todoItemForm.input.value, done: false };
 
-        myTodos.push({ name: todoItemForm.input.value, done: false });
-        myStorage.setItem(todos, JSON.stringify(myTodos));
-        todoItemButtonEventClick(todoItem, todos);
+        const todoItemElement = createTodoItemElement(objTodo);
 
-        todoList.append(todoItem.item);
+        myTodos.push(objTodo);
+        myStorage.setItem(todosName, JSON.stringify(myTodos));
+
+        todoList.append(todoItemElement);
         todoItemForm.input.value = ``;
         disabledFormButton(todoItemForm.input.value, todoItemForm.button);
     });
@@ -134,39 +165,6 @@ function disabledFormButton(value, button) {
     } else {
         button.setAttribute(`disabled`, `disabled`);
     };
-}
-
-function todoItemButtonEventClick(todoItem, todos) {
-    todoItem.doneButton.addEventListener(`click`, function () {
-        todoItem.item.classList.toggle(`list-group-item-success`);
-
-        for (const todo of myTodos) {
-            if (todo.name === todoItem.item.firstChild.textContent) {
-                if (todoItem.item.classList.contains(`list-group-item-success`)) {
-                    todo.done = true;
-                } else {
-                    todo.done = false;
-                }
-
-                myStorage.setItem(todos, JSON.stringify(myTodos));
-
-                break;
-            }
-        }
-    });
-
-    todoItem.deleteButton.addEventListener(`click`, function () {
-        if (confirm(`Вы уверены?`)) {
-            for (const todo in myTodos) {
-                if (myTodos[todo].name === todoItem.item.firstChild.textContent) {
-                    myTodos.splice(todo, 1);
-                    myStorage.setItem(todos, JSON.stringify(myTodos));
-                    todoItem.item.remove();
-                    break;
-                }
-            }
-        }
-    });
 }
 
 window.createTodoApp = createTodoApp;
