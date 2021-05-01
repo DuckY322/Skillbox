@@ -1,6 +1,3 @@
-myStorage = window.localStorage;
-
-let todosName;
 let myTodos = [];
 
 function createAppTitle(title) {
@@ -40,7 +37,7 @@ function createTodoList() {
     return list;
 };
 
-function createTodoItemElement(todoItemElement) {
+function createTodoItemElement(todoItem, { onDone, onDelete }) {
     const doneClass = `list-group-item-success`;
 
     const item = document.createElement(`li`);
@@ -50,40 +47,17 @@ function createTodoItemElement(todoItemElement) {
     const deleteButton = document.createElement(`button`);
 
     item.classList.add(`list-group-item`, `d-flex`, `justify-content-between`, `align-items-center`);
-    item.textContent = todoItemElement.name;
-    if (todoItemElement.done) {
-        item.classList.toggle(doneClass);
+    item.textContent = todoItem.name;
+    if (todoItem.done) {
+        item.classList.add(doneClass);
     }
 
     doneButton.addEventListener(`click`, function () {
-        item.classList.toggle(doneClass);
-
-        for (const todo of myTodos) {
-            if (todo.name === item.firstChild.textContent) {
-                if (item.classList.contains(doneClass)) {
-                    todo.done = true;
-                } else {
-                    todo.done = false;
-                }
-
-                myStorage.setItem(todosName, JSON.stringify(myTodos));
-
-                break;
-            }
-        }
+        onDone({ todoItem, element: item, doneClass: doneClass });
     });
 
     deleteButton.addEventListener(`click`, function () {
-        if (confirm(`Вы уверены?`)) {
-            for (const todo in myTodos) {
-                if (myTodos[todo].name === item.firstChild.textContent) {
-                    myTodos.splice(todo, 1);
-                    myStorage.setItem(todosName, JSON.stringify(myTodos));
-                    item.remove();
-                    break;
-                }
-            }
-        }
+        onDelete({ todoItem, element: item });
     });
 
     buttonGroup.classList.add(`btn-group`, `btn-group-sm`);
@@ -99,56 +73,50 @@ function createTodoItemElement(todoItemElement) {
     return item;
 };
 
-function initialTodosArr(todosName, todosArr) {
-    if (todosArr) {
-        const tempStorage = JSON.parse(myStorage.getItem(todosName));
-
-        if (tempStorage === null || tempStorage.length === 0 || JSON.stringify(tempStorage) === JSON.stringify(todosArr)) {
-            return todosArr;
-        } else {
-            return tempStorage;
-        }
-    } else {
-        const tempStorage = JSON.parse(myStorage.getItem(todosName));
-
-        if (tempStorage) {
-            return tempStorage;
-        }
-    }
-}
-
-function createTodoApp(container, title = `Мои дела`, todos = `myTodos`, todosArr = null) {
+async function createTodoApp(container, title = `Мои дела`, owner = `Me`) {
     const todoAppTitle = createAppTitle(title);
     const todoItemForm = createTodoItemForm();
     const todoList = createTodoList();
+
+    const handlers = {
+        onDone({ todoItem, element, doneClass }) {
+            todoItem.done = !todoItem.done;
+            element.classList.toggle(doneClass, todoItem.done);
+
+            communicateToServer(`/${todoItem.id}`, `PATCH`, { done: todoItem.done });
+        },
+        onDelete({ todoItem, element }) {
+            if (confirm(`Вы уверены?`)) {
+                element.remove();
+
+                communicateToServer(`/${todoItem.id}`, `DELETE`);
+            }
+        }
+    };
 
     container.append(todoAppTitle);
     container.append(todoItemForm.form);
     container.append(todoList);
 
-    todosName = todos;
-    myTodos = initialTodosArr(todosName, todosArr);
+    myTodos = await communicateToServer(`?owner=${owner}`);
 
-    for (const todo of myTodos) {
-        const todoItemElement = createTodoItemElement(todo);
+    myTodos.forEach(todoItem => {
+        const todoItemElement = createTodoItemElement(todoItem, handlers);
         todoList.append(todoItemElement);
-    }
+    });
 
-    todoItemForm.form.addEventListener(`submit`, function (e) {
+    todoItemForm.form.addEventListener(`submit`, async e => {
         e.preventDefault();
 
         if (!todoItemForm.input.value) {
             return;
         }
 
-        let objTodo = { name: todoItemForm.input.value, done: false };
+        const todoItem = await communicateToServer(``, `POST`, { owner: owner, name: todoItemForm.input.value.trim(), done: false });
 
-        const todoItemElement = createTodoItemElement(objTodo);
-
-        myTodos.push(objTodo);
-        myStorage.setItem(todosName, JSON.stringify(myTodos));
-
+        const todoItemElement = createTodoItemElement(todoItem, handlers);
         todoList.append(todoItemElement);
+
         todoItemForm.input.value = ``;
         disabledFormButton(todoItemForm.input.value, todoItemForm.button);
     });
@@ -165,6 +133,19 @@ function disabledFormButton(value, button) {
     } else {
         button.setAttribute(`disabled`, `disabled`);
     };
+}
+
+async function communicateToServer(query = ``, method = `GET`, body, headers = { 'Content-Type': 'application/json' }) {
+    const response = await fetch(`http://localhost:3000/api/todos${query}`, {
+        method: method,
+        body: JSON.stringify(body),
+        headers: headers
+    }).then(async response => {
+        return response.json();
+    }).catch(() => {
+        return `err`
+    });
+    return response;
 }
 
 window.createTodoApp = createTodoApp;
