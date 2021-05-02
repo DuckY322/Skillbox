@@ -1,5 +1,30 @@
 let myTodos = [];
 
+function createAppLinks(mainContainer, links) {
+    const container = document.createElement(`div`);
+    container.classList.add(`container`, `mb-5`);
+
+    const nav = document.createElement(`nav`);
+    nav.classList.add(`nav`);
+
+    links.forEach(item => {
+        const link = document.createElement(`a`);
+        link.classList.add(`nav-link`);
+        link.textContent = item.title;
+        link.style.cursor = 'pointer';
+        link.addEventListener(`click`, function () {
+            mainContainer.innerHTML = ""
+            createTodoApp(mainContainer, item.title, item.owner)
+        });
+
+        nav.append(link);
+    });
+
+    container.append(nav);
+
+    return container
+}
+
 function createAppTitle(title) {
     const appTile = document.createElement(`h2`);
     appTile.innerHTML = title;
@@ -74,6 +99,20 @@ function createTodoItemElement(todoItem, { onDone, onDelete }) {
 };
 
 async function createTodoApp(container, title = `Мои дела`, owner = `Me`) {
+    const todoAppLinks = createAppLinks(container, [
+        {
+            title: `Мои дела`,
+            owner: `Me`,
+        },
+        {
+            title: `Дела мамы`,
+            owner: `Mom`,
+        },
+        {
+            title: `Дела папы`,
+            owner: `Dad`,
+        },
+    ]);
     const todoAppTitle = createAppTitle(title);
     const todoItemForm = createTodoItemForm();
     const todoList = createTodoList();
@@ -94,6 +133,7 @@ async function createTodoApp(container, title = `Мои дела`, owner = `Me`)
         }
     };
 
+    container.append(todoAppLinks);
     container.append(todoAppTitle);
     container.append(todoItemForm.form);
     container.append(todoList);
@@ -140,12 +180,11 @@ async function communicateToServer(query = ``, method = `GET`, body, headers = {
         method: method,
         body: JSON.stringify(body),
         headers: headers
-    }).then(async response => {
-        return response.json();
-    }).catch(() => {
-        return `err`
-    });
-    return response;
+    })
+
+    return response.json();
 }
 
-window.createTodoApp = createTodoApp;
+document.addEventListener(`DOMContentLoaded`, function () {
+    createTodoApp(document.getElementById(`todo-app`));
+});
