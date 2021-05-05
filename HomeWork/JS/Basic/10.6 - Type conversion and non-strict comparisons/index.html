@@ -26,9 +26,61 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script defer src="src/index.js"></script>
+    <script defer type="module" src="src/index.js"></script>
   </head>
   <body>
     <div id="student-panel" class="container"></div>
+    <template id="template__form">
+      <h2>Добавить студента</h2>
+      <form class="input-group mb-5">
+        <input
+          id="inputFirstName"
+          class="form-control w-100 mb-1"
+          placeholder="Введите Имя студента"
+        /><input
+          id="inputSurname"
+          class="form-control w-100 mb-1"
+          placeholder="Введите Фамилию студента"
+        /><input
+          id="inputMiddleName"
+          class="form-control w-100 mb-1"
+          placeholder="Введите Отчество студента"
+        /><input
+          id="inputDateOfBirth"
+          class="form-control w-100 mb-1"
+          placeholder="Введите дату рождения студента"
+          type="date"
+          min="1900-01-01"
+        /><input
+          id="inputYearOfBeginningOfTraining"
+          class="form-control w-100 mb-1"
+          placeholder="Введите год начала обучения студента"
+          type="number"
+          min="2000"
+        /><input
+          id="inputFaculty"
+          class="form-control w-100 mb-1"
+          placeholder="Введите факультет студента"
+        />
+        <div class="input-group-append mr-3">
+          <button disabled="disabled" class="btn btn-primary">Добавить</button>
+        </div>
+      </form>
+    </template>
+    <template id="template__sort">
+      <h2>Список студентов</h2>
+      <div class="dropdown mb-3">
+        <a
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Сортировать</a
+        >
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+      </div>
+    </template>
   </body>
 </html>
