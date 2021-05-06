@@ -31,8 +31,8 @@
   <body>
     <div id="student-panel" class="container"></div>
     <template id="template__form">
-      <h2>Добавить студента</h2>
-      <form class="input-group mb-5">
+      <h2 id="form__title">Добавить студента</h2>
+      <form id="form" class="input-group mb-5">
         <input
           id="inputFirstName"
           class="form-control w-100 mb-1"
@@ -63,7 +63,7 @@
           placeholder="Введите факультет студента"
         />
         <div class="input-group-append mr-3">
-          <button disabled="disabled" class="btn btn-primary">Добавить</button>
+          <button id="form__button" disabled="disabled" class="btn btn-primary">Добавить</button>
         </div>
       </form>
     </template>

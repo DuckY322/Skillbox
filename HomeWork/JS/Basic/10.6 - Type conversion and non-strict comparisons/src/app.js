@@ -12,33 +12,42 @@ export const app = () => {
     const myStorage = window.localStorage;
     const dataFromStorage = JSON.parse(myStorage.getItem('table'));
     const students = dataFromStorage !== null ? dataFromStorage : [];
-    const filteredBy = [
+    const filteredBy = [];
+    const filteredParameters = [
         {
-            FullName: null,
+            title: `По имени`,
+            value: `FullName`,
+            sortBy: `sortByName`,
         },
         {
-            Faculty: null,
+            title: `По факультету`,
+            value: `Faculty`,
+            sortBy: `sortByFaculty`,
         },
         {
-            dateOfBirth: null,
+            title: `По году рождения`,
+            value: `dateOfBirth`,
+            sortBy: `sortByAge`,
         },
         {
-            YearOfBeginningOfTraining: null,
+            title: `По году начала обучения`,
+            value: `YearOfBeginningOfTraining`,
+            sortBy: `sortByYearOfBeg`,
         },
     ];
     const handlers = [
         {
             sortByName() {
-                sortList(students, studentsList, `FullName`);
+                sortList(students, studentsList, filteredParameters[0].value);
             },
             sortByFaculty() {
-                sortList(students, studentsList, `Faculty`);
+                sortList(students, studentsList, filteredParameters[1].value);
             },
             sortByAge() {
-                sortList(students, studentsList, `dateOfBirth`);
+                sortList(students, studentsList, filteredParameters[2].value);
             },
             sortByYearOfBeg() {
-                sortList(students, studentsList, `YearOfBeginningOfTraining`);
+                sortList(students, studentsList, filteredParameters[3].value);
             }
         },
         {
@@ -83,39 +92,19 @@ export const app = () => {
                 createNewStudentsList(studentsList, newStudentsList.length > 0 ? newStudentsList : students);
             }
         }
-    ]
-    const filteredParameters = [
-        {
-            title: `По имени`,
-            value: `FullName`,
-            sortBy: `sortByName`,
-        },
-        {
-            title: `По факультету`,
-            value: `Faculty`,
-            sortBy: `sortByFaculty`,
-        },
-        {
-            title: `По году рождения`,
-            value: `dateOfBirth`,
-            sortBy: `sortByAge`,
-        },
-        {
-            title: `По году начала обучения`,
-            value: `YearOfBeginningOfTraining`,
-            sortBy: `sortByYearOfBeg`,
-        },
     ];
-    const studentCreateForm = createStudentForm();
     const sortMenu = createSortMenu();
     const studentsList = createStudentsList();
+    const studentCreateForm = createStudentForm(studentsList, students, myStorage);
 
+    container.append(studentCreateForm.formTitle);
     container.append(studentCreateForm.form);
     container.append(sortMenu.dropDown);
 
     filteredParameters.forEach(el => {
         sortMenu.dropDownMenu.append(createSortMenuItem(handlers[0], el));
         container.append(createFilterMenu(handlers[1], el));
+        filteredBy.push({ [el.value]: null });
     });
 
     container.append(studentsList);
@@ -123,25 +112,5 @@ export const app = () => {
     students.forEach(student => {
         const studentElement = createStudent(student);
         studentsList.append(studentElement);
-    });
-
-    studentCreateForm.button.addEventListener(`click`, function (e) {
-        e.preventDefault();
-        const studentObj = {
-            FullName: `${studentCreateForm.inputSurname.value.trim()} ${studentCreateForm.inputFirstName.value.trim()} ${studentCreateForm.inputMiddleName.value.trim()}`,
-            dateOfBirth: studentCreateForm.inputDateOfBirth.value.trim(),
-            YearOfBeginningOfTraining: studentCreateForm.inputYearOfBeginningOfTraining.value.trim(),
-            Faculty: studentCreateForm.inputFaculty.value.trim(),
-        };
-
-        const studentElement = createStudent(studentObj);
-        studentsList.append(studentElement);
-
-        students.push(studentObj);
-        myStorage.setItem('table', JSON.stringify(students))
-
-        studentCreateForm.form.reset;
-
-        studentCreateForm.button.setAttribute(`disabled`, `disabled`);
     });
 }
