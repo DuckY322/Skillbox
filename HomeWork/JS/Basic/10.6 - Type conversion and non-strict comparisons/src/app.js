@@ -41,31 +41,27 @@ export const app = () => {
     const handlers = [
         {
             sortByName() {
+                newStudentsSort = sortList(students, studentsList, filteredParameters[0].value).slice();
                 if (newStudentsFilter && newStudentsFilter.length > 0) {
-                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
-                } else {
-                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
+                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[0].value).slice();
                 }
             },
             sortByFaculty() {
+                newStudentsSort = sortList(students, studentsList, filteredParameters[1].value).slice();
                 if (newStudentsFilter && newStudentsFilter.length > 0) {
-                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
-                } else {
-                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
+                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[1].value).slice();
                 }
             },
             sortByAge() {
+                newStudentsSort = sortList(students, studentsList, filteredParameters[2].value).slice();
                 if (newStudentsFilter && newStudentsFilter.length > 0) {
-                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
-                } else {
-                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
+                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[2].value).slice();
                 }
             },
             sortByYearOfBeg() {
+                newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
                 if (newStudentsFilter && newStudentsFilter.length > 0) {
                     newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
-                } else {
-                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
                 }
             }
         },
