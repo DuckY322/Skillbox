@@ -12,6 +12,9 @@ export const app = () => {
     const myStorage = window.localStorage;
     const dataFromStorage = JSON.parse(myStorage.getItem('table'));
     const students = dataFromStorage !== null ? dataFromStorage : [];
+    let newStudentsSort = students.slice();
+    let newStudentsSortFilter;
+    let newStudentsFilter;
     const filteredBy = [];
     const filteredParameters = [
         {
@@ -38,30 +41,47 @@ export const app = () => {
     const handlers = [
         {
             sortByName() {
-                sortList(students, studentsList, filteredParameters[0].value);
+                if (newStudentsFilter && newStudentsFilter.length > 0) {
+                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
+                } else {
+                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
+                }
             },
             sortByFaculty() {
-                sortList(students, studentsList, filteredParameters[1].value);
+                if (newStudentsFilter && newStudentsFilter.length > 0) {
+                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
+                } else {
+                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
+                }
             },
             sortByAge() {
-                sortList(students, studentsList, filteredParameters[2].value);
+                if (newStudentsFilter && newStudentsFilter.length > 0) {
+                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
+                } else {
+                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
+                }
             },
             sortByYearOfBeg() {
-                sortList(students, studentsList, filteredParameters[3].value);
+                if (newStudentsFilter && newStudentsFilter.length > 0) {
+                    newStudentsSortFilter = sortList(newStudentsFilter, studentsList, filteredParameters[3].value).slice();
+                } else {
+                    newStudentsSort = sortList(students, studentsList, filteredParameters[3].value).slice();
+                }
             }
         },
         {
             listFiltering(text, datafilteredBy) {
-                if (text !== '') {
-                    const index = filteredBy.findIndex(item => Object.keys(item)[0] === datafilteredBy);
-                    filteredBy[index][datafilteredBy] = text;
-                } else {
+                if (text === '') {
                     const index = filteredBy.findIndex(item => Object.keys(item)[0] === datafilteredBy);
                     filteredBy[index][datafilteredBy] = null;
+                } else {
+                    const index = filteredBy.findIndex(item => Object.keys(item)[0] === datafilteredBy);
+                    filteredBy[index][datafilteredBy] = text;
                 }
 
+                let dataFilter = newStudentsSortFilter ? newStudentsSortFilter : newStudentsSort;
 
-                let newStudentsList = students.filter(student => {
+                newStudentsFilter = dataFilter.filter(student => {
                     let result = false;
                     let filterParametersCount = 0;
                     let numberOfFiltersPassed = 0;
@@ -89,7 +109,11 @@ export const app = () => {
                     return result;
                 });
 
-                createNewStudentsList(studentsList, newStudentsList.length > 0 ? newStudentsList : students);
+                if (newStudentsFilter.length > 0) {
+                    createNewStudentsList(studentsList, newStudentsFilter);
+                } else {
+                    createNewStudentsList(studentsList, newStudentsSort);
+                }
             }
         }
     ];

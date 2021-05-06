@@ -47,7 +47,6 @@ export const createStudentForm = (studentsList, students, myStorage) => {
 
         const studentElement = createStudent(studentObj);
         studentsList.append(studentElement);
-
         students.push(studentObj);
         myStorage.setItem('table', JSON.stringify(students))
 
