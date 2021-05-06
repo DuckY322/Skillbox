@@ -4,7 +4,7 @@ import { createStudentForm } from "../src/modules/createStudentForm.js";
 import { createSortMenu } from "../src/modules/createSortMenu.js";
 import { createStudentsList } from "../src/modules/createStudentsList.js";
 import { createSortMenuItem } from "../src/modules/createSortMenuItem.js";
-import { createFilterMenu } from "../src/modules/createFilterMenu.js";
+import { createFilterItem } from "../src/modules/createFilterItem.js";
 import { createStudent } from "../src/modules/createStudent.js";
 
 export const app = () => {
@@ -103,7 +103,7 @@ export const app = () => {
 
     filteredParameters.forEach(el => {
         sortMenu.dropDownMenu.append(createSortMenuItem(handlers[0], el));
-        container.append(createFilterMenu(handlers[1], el));
+        container.append(createFilterItem(handlers[1], el));
         filteredBy.push({ [el.value]: null });
     });
 
