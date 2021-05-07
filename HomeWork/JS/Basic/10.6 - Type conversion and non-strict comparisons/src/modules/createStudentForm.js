@@ -1,7 +1,6 @@
 import { disabledFormButton } from "../modules/disabledFormButton.js";
-import { createStudent } from "../modules/createStudent.js";
 
-export const createStudentForm = (studentsList, students, myStorage) => {
+export const createStudentForm = () => {
     const dateNow = new Date();
     const dateNowYear = dateNow.getFullYear();
     const dateNowMonth = dateNow.getMonth() + 1 < 10 ? `0${dateNow.getMonth() + 1}` : dateNow.getMonth() + 1;
@@ -36,27 +35,15 @@ export const createStudentForm = (studentsList, students, myStorage) => {
         }
     });
 
-    form.addEventListener(`submit`, function (e) {
-        e.preventDefault();
-        const studentObj = {
-            FullName: `${inputSurname.value.trim()} ${inputFirstName.value.trim()} ${inputMiddleName.value.trim()}`,
-            dateOfBirth: inputDateOfBirth.value.trim(),
-            YearOfBeginningOfTraining: inputYearOfBeginningOfTraining.value.trim(),
-            Faculty: inputFaculty.value.trim(),
-        };
-
-        const studentElement = createStudent(studentObj);
-        studentsList.append(studentElement);
-        students.push(studentObj);
-        myStorage.setItem('table', JSON.stringify(students))
-
-        form.reset();
-
-        button.setAttribute(`disabled`, `disabled`);
-    });
-
     return {
         formTitle,
         form,
+        inputFirstName,
+        inputSurname,
+        inputMiddleName,
+        inputDateOfBirth,
+        inputYearOfBeginningOfTraining,
+        inputFaculty,
+        button,
     };
 };
