@@ -9,4 +9,3 @@ function filter(srcArr, filterFrom) {
 
   return filteredOut;
 }
-export default filter;

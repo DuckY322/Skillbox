@@ -25,5 +25,3 @@ function discountCalc(totalAmount, numberOfPproducts, promoCode = null) {
 
   return newtotalAmount;
 }
-
-export default discountCalc
