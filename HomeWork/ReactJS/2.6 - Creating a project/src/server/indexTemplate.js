@@ -1,3 +1,4 @@
+export const indexTemplate = (content) => `
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,9 +6,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ReactJS SSR HVR Template</title>
-<script defer src="index.js"></script></head>
+    <title>SSR HMR ReactJS Example with CSSModules</title>
+    <script src="/static/client.js" type="application/javascript"></script>
+</head>
 <body>
-<div id="react_root"></div>
+    <div id="react_root">${content}</div>
 </body>
 </html>
+`;
