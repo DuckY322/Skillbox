@@ -1,0 +1,77 @@
+.controls {
+    padding: 10px 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.karmaCounter {
+    display: flex;
+    padding: 0 0 0 4px;
+}
+
+.karmaValue {
+    color: var(--greyC4);
+    padding: 2px 5px 0 5px;
+}
+
+.commentsButton {
+    display: flex;
+    align-items: center;
+}
+
+.commentsButton * {
+    color: var(--greyC4);
+}
+
+.commentsNumber {
+    padding: 0 0 0 6px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shareButton {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+.saveButton {
+    width: 20px;
+    height: 20px;
+}
+
+@media all and (min-width: 1024px) {
+    .controls {
+        order: 3;
+
+    }
+    .karmaCounter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .commentsButton {
+        display: none;
+    }
+    .actions {
+        display: none;
+    }
+}
+
+@media all and (min-width: 1540px){
+    .controls {
+        position: relative;
+    }
+    .up:hover svg path{
+        fill: var(--green);
+    }
+    .down:hover svg path{
+        fill: var(--orange);
+    }
+}

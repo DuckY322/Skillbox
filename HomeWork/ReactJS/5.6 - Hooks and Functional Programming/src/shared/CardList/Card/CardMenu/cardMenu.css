@@ -1,0 +1,15 @@
+.menu {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+}
+
+@media all and (min-width: 1024px) {
+    .menu {
+        position: static;
+        z-index: 2;
+        margin-left: auto;
+        align-self: center;
+        order: 2;
+    }
+}
