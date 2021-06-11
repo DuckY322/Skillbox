@@ -1,0 +1,94 @@
+.controls {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.karmaCounter {
+    display: flex;
+    padding: 0 0 0 4px;
+}
+
+.down {
+    transform: rotate(180deg);
+}
+
+.karmaValue {
+    color: var(--greyC4);
+    padding: 2px 5px 0 5px;
+}
+
+.commentsButton {
+    display: flex;
+    align-items: center;
+}
+
+.commentsButton * {
+    color: var(--greyC4);
+}
+
+.commentsIcon {
+    width: 14px;
+    height: 14px;
+}
+
+.commentsNumber {
+    padding: 0 0 0 6px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shareButton {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--greyC4);
+}
+
+.shareIcon {
+    margin: auto;
+    width: 10px;
+    height: 10px;
+}
+
+.saveButton {
+    width: 20px;
+    height: 20px;
+}
+
+@media all and (min-width: 1024px) {
+    .controls {
+        order: 3;
+
+    }
+    .karmaCounter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .commentsButton {
+        display: none;
+    }
+    .actions {
+        display: none;
+    }
+}
+
+@media all and (min-width: 1540px){
+    .controls {
+        position: relative;
+    }
+    .up:hover path{
+        fill: var(--green);
+    }
+    .down:hover path{
+        fill: var(--orange);
+    }
+}
