@@ -22,7 +22,7 @@
 
 .menuItem:nth-child(1),
 .menuItem:nth-child(2),
-.menuItem:nth-child(4){
+.menuItem:nth-child(4) {
     display: none;
 }
 
@@ -66,18 +66,22 @@
         order: 2;
         margin-left: auto;
     }
+
     .menuButton {
         transform: none;
     }
+
     .menuItem:nth-child(1),
     .menuItem:nth-child(2),
-    .menuItem:nth-child(4){
+    .menuItem:nth-child(4) {
         display: flex;
     }
+
     .menuItem {
         padding: 10px 20px;
         font-size: 14px;
     }
+
     .menuItemImage {
         width: 14px;
         height: 14px;

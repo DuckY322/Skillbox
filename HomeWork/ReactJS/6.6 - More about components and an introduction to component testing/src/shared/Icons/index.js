@@ -1,4 +1,4 @@
-export * from './MenuIcon';
+export * from './CardMenuIcon';
 export * from './CommentIcon';
 export * from './HideIcon';
 export * from './ReportIcon';

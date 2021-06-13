@@ -3,7 +3,7 @@ import styles from './cardMenu.css'
 import {Dropdown} from "../../../Dropdown";
 import {GenericList} from "../../../GenericList";
 import {generateRandomString} from "../../../../utils/react/generaterandomIndex";
-import {MenuIcon, CommentIcon, ShareIcon, HideIcon, SaveIcon, ReportIcon } from '../../../Icons';
+import {CardMenuIcon, CommentIcon, ShareIcon, HideIcon, SaveIcon, ReportIcon} from '../../../Icons';
 
 const CardMenuItem = [
     {
@@ -46,17 +46,17 @@ export function CardMenu({postId}: ICardMenuProps) {
             <Dropdown
                 button={
                     <button className={styles.menuButton}>
-                        <MenuIcon/>
+                        <CardMenuIcon/>
                     </button>
                 }>
-                    <GenericList list={CardMenuItem.map((item) => (
-                        {
-                            ...item,
-                            id: generateRandomString(32),
-                            onClick: handleItemClick,
-                            className: styles.menuItem,
-                        }
-                    ))}/>
+                <GenericList list={CardMenuItem.map((item) => (
+                    {
+                        ...item,
+                        id: generateRandomString(32),
+                        onClick: handleItemClick,
+                        className: styles.menuItem,
+                    }
+                ))}/>
             </Dropdown>
         </div>
     );

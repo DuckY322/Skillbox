@@ -14,15 +14,16 @@ interface IGenericListProps {
     list: IItem[];
 }
 
-const noop = () => {}
+const noop = () => {
+}
 
 export function GenericList({list}: IGenericListProps) {
     return (
         <>
-            {list.map(({As = 'div', text, onClick= noop, className,img, id, href}) => (
+            {list.map(({As = 'div', text, onClick = noop, className, img, id, href}) => (
                 <As
                     className={className}
-                    onClick={() => onClick(text,id)}
+                    onClick={() => onClick(text, id)}
                     key={id}
                     href={href}
                 >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommentIcon, ControlsKarmaIcon, ControlsSaveIcon, ControlsShareIcon } from '../../../Icons';
+import {CommentIcon, ControlsKarmaIcon, ControlsSaveIcon, ControlsShareIcon} from '../../../Icons';
 import styles from './cardControls.css'
 
 export function CardControls() {

@@ -68,27 +68,32 @@
         order: 3;
 
     }
+
     .karmaCounter {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
+
     .commentsButton {
         display: none;
     }
+
     .actions {
         display: none;
     }
 }
 
-@media all and (min-width: 1540px){
+@media all and (min-width: 1540px) {
     .controls {
         position: relative;
     }
-    .up:hover path{
+
+    .up:hover path {
         fill: var(--green);
     }
-    .down:hover path{
+
+    .down:hover path {
         fill: var(--orange);
     }
 }
