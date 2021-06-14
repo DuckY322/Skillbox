@@ -24,19 +24,11 @@
     align-items: center;
 }
 
-.commentsButton * {
-    color: var(--greyC4);
-}
-
-.commentsIcon {
-    width: 14px;
-    height: 14px;
-}
-
 .commentsNumber {
     padding: 0 0 0 6px;
     font-size: 12px;
     line-height: 14px;
+    color: var(--greyC4);
 }
 
 .actions {
@@ -46,21 +38,13 @@
 
 .shareButton {
     margin-right: 15px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--greyC4);
-}
-
-.shareIcon {
-    margin: auto;
-    width: 10px;
-    height: 10px;
+    max-width: 20px;
+    max-height: 20px;
 }
 
 .saveButton {
-    width: 20px;
-    height: 20px;
+    max-width: 20px;
+    max-height: 20px;
 }
 
 @media all and (min-width: 1024px) {
@@ -89,11 +73,11 @@
         position: relative;
     }
 
-    .up:hover path {
+    .up:hover svg path {
         fill: var(--green);
     }
 
-    .down:hover path {
+    .down:hover svg path {
         fill: var(--orange);
     }
 }

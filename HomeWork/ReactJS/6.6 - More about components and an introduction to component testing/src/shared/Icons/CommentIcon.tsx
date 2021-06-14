@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface IIconProps {
-    style: string;
+    style?: string;
 }
 
 export function CommentIcon({style}: IIconProps) {

@@ -3,28 +3,28 @@ import styles from './cardMenu.css'
 import {Dropdown} from "../../../Dropdown";
 import {GenericList} from "../../../GenericList";
 import {generateRandomString} from "../../../../utils/react/generaterandomIndex";
-import {CardMenuIcon, CommentIcon, ShareIcon, HideIcon, SaveIcon, ReportIcon} from '../../../Icons';
+import {EIcons, Icon} from "../../../Icon";
 
 const CardMenuItem = [
     {
         text: 'Комментарии',
-        img: <CommentIcon style={styles.menuItemImage}/>
+        img: <Icon name={EIcons.Comment} mr={6}/>
     },
     {
         text: 'Поделиться',
-        img: <ShareIcon style={styles.menuItemImage}/>
+        img: <Icon name={EIcons.Share} sizeX={12} mr={6}/>
     },
     {
         text: 'Скрыть',
-        img: <HideIcon style={styles.menuItemImage}/>
+        img: <Icon name={EIcons.Hide} mobileSizeX={12} mobileSizeY={12} mr={5} mMr={6}/>
     },
     {
         text: 'Сохранить',
-        img: <SaveIcon style={styles.menuItemImage}/>
+        img: <Icon name={EIcons.Save} mr={5}/>
     },
     {
         text: 'Пожаловаться',
-        img: <ReportIcon style={styles.menuItemImage}/>
+        img: <Icon name={EIcons.Report} sizeX={16} mobileSizeX={14} mobileSizeY={12} mr={5} mMr={4}/>
     },
     {
         text: 'Закрыть'
@@ -46,7 +46,7 @@ export function CardMenu({postId}: ICardMenuProps) {
             <Dropdown
                 button={
                     <button className={styles.menuButton}>
-                        <CardMenuIcon/>
+                        <Icon name={EIcons.CardMenu} sizeX={5} sizeY={20}/>
                     </button>
                 }>
                 <GenericList list={CardMenuItem.map((item) => (

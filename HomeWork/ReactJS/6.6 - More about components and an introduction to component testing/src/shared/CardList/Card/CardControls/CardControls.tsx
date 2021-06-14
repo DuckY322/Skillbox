@@ -1,31 +1,31 @@
 import React from 'react';
-import {CommentIcon, ControlsKarmaIcon, ControlsSaveIcon, ControlsShareIcon} from '../../../Icons';
 import styles from './cardControls.css'
+import {EIcons, Icon} from "../../../Icon";
 
 export function CardControls() {
     return (
         <div className={styles.controls}>
             <div className={styles.karmaCounter}>
-                <button>
-                    <ControlsKarmaIcon style={styles.up}/>
+                <button className={styles.up}>
+                    <Icon name={EIcons.ControlsKarma} sizeX={19} sizeY={10}/>
                 </button>
                 <span className={styles.karmaValue}>234</span>
-                <button>
-                    <ControlsKarmaIcon style={styles.down}/>
+                <button className={styles.down}>
+                    <Icon name={EIcons.ControlsKarma} sizeX={19} sizeY={10}/>
                 </button>
             </div>
 
             <button className={styles.commentsButton}>
-                <CommentIcon style={styles.commentsIcon}/>
+                <Icon name={EIcons.Comment}/>
                 <span className={styles.commentsNumber}>13</span>
             </button>
 
             <div className={styles.actions}>
                 <button className={styles.shareButton}>
-                    <ControlsShareIcon/>
+                    <Icon name={EIcons.ControlsShare} sizeX={20} sizeY={20}/>
                 </button>
                 <button className={styles.saveButton}>
-                    <ControlsSaveIcon/>
+                    <Icon name={EIcons.ControlsSave} sizeX={20} sizeY={20}/>
                 </button>
             </div>
         </div>
