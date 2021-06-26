@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./icon.css"
 import classNames from "classnames"
 import {
+    AnonIcon,
     CardMenuIcon,
     CommentIcon,
     ControlsKarmaIcon,
@@ -14,6 +15,7 @@ import {
 } from "../Icons";
 
 export enum EIcons {
+    Anon = 'AnonIcon',
     CardMenu = 'CardMenuIcon',
     Comment = 'CommentIcon',
     ControlsKarma = 'ControlsKarmaIcon',
@@ -44,6 +46,7 @@ interface IIconProps {
     mMr?: TIconMargin;
     tMr?: TIconMargin;
     dMr?: TIconMargin;
+    full?: boolean;
 }
 
 export function Icon(props: IIconProps) {
@@ -61,6 +64,7 @@ export function Icon(props: IIconProps) {
         mMr,
         tMr,
         dMr,
+        full = false,
     } = props;
 
     const classes = classNames(
@@ -76,9 +80,15 @@ export function Icon(props: IIconProps) {
         {[styles[`mMr${mMr}`]]: mMr},
         {[styles[`tMr${tMr}`]]: tMr},
         {[styles[`dMr${dMr}`]]: dMr},
+        {[styles.full]: full},
     );
 
     switch (name) {
+        case EIcons.Anon: {
+            return (
+                <AnonIcon style={classes}/>
+            )
+        }
         case EIcons.CardMenu: {
             return (
                 <CardMenuIcon style={classes}/>

@@ -1,3 +1,4 @@
+export * from './AnonIcon';
 export * from './CardMenuIcon';
 export * from './CommentIcon';
 export * from './HideIcon';
